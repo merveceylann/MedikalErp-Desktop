@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ErpProject102Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblCariGruplari">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GrupAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="isActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblCariler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CariGrupId" Type="int" />
+          <Property Name="CariTipId" Type="int" />
+          <Property Name="CariAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="CariUnvan" Type="nvarchar(max)" />
+          <Property Name="Adres1" Type="nvarchar(max)" />
+          <Property Name="Adres2" Type="nvarchar(max)" />
+          <Property Name="VDairesi" Type="nvarchar" MaxLength="100" />
+          <Property Name="VnoTcno" Type="nvarchar" MaxLength="11" />
+          <Property Name="SehirId" Type="int" />
+          <Property Name="CariTel" Type="nvarchar" MaxLength="20" />
+          <Property Name="CariMail" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetkiliAdi1" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetkiliAdi2" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetkiliAdi3" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetkiliDep1" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetkiliDep2" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetkiliDep3" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetkiliTel1" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetkiliTel2" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetkiliTel3" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetkiliCep1" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetkiliCep2" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetkiliCep3" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetkiliMail1" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetkiliMail2" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetkiliMail3" Type="nvarchar" MaxLength="50" />
+          <Property Name="SaveUserId" Type="int" />
+          <Property Name="UpdateUserId" Type="int" />
+          <Property Name="SaveDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="isActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblDepartmanlar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GrupId" Type="int" />
+          <Property Name="DeptAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="isActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblSehirler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sehir" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_tblCariler_tblCariGruplari">
+          <End Role="tblCariGruplari" Type="Self.tblCariGruplari" Multiplicity="0..1" />
+          <End Role="tblCariler" Type="Self.tblCariler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCariGruplari">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblCariler">
+              <PropertyRef Name="CariGrupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCariler_tblSehirler">
+          <End Role="tblSehirler" Type="Self.tblSehirler" Multiplicity="0..1" />
+          <End Role="tblCariler" Type="Self.tblCariler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSehirler">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblCariler">
+              <PropertyRef Name="SehirId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblDepartmanlar_tblCariGruplari">
+          <End Role="tblCariGruplari" Type="Self.tblCariGruplari" Multiplicity="0..1" />
+          <End Role="tblDepartmanlar" Type="Self.tblDepartmanlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCariGruplari">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDepartmanlar">
+              <PropertyRef Name="GrupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ErpProject102ModelStoreContainer">
+          <EntitySet Name="tblCariGruplari" EntityType="Self.tblCariGruplari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCariler" EntityType="Self.tblCariler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDepartmanlar" EntityType="Self.tblDepartmanlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSehirler" EntityType="Self.tblSehirler" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblCariler_tblCariGruplari" Association="Self.FK_tblCariler_tblCariGruplari">
+            <End Role="tblCariGruplari" EntitySet="tblCariGruplari" />
+            <End Role="tblCariler" EntitySet="tblCariler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCariler_tblSehirler" Association="Self.FK_tblCariler_tblSehirler">
+            <End Role="tblSehirler" EntitySet="tblSehirler" />
+            <End Role="tblCariler" EntitySet="tblCariler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblDepartmanlar_tblCariGruplari" Association="Self.FK_tblDepartmanlar_tblCariGruplari">
+            <End Role="tblCariGruplari" EntitySet="tblCariGruplari" />
+            <End Role="tblDepartmanlar" EntitySet="tblDepartmanlar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ErpProject102Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblCariGruplari">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GrupAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isActive" Type="Boolean" />
+          <NavigationProperty Name="tblCariler" Relationship="Self.FK_tblCariler_tblCariGruplari" FromRole="tblCariGruplari" ToRole="tblCariler" />
+          <NavigationProperty Name="tblDepartmanlar" Relationship="Self.FK_tblDepartmanlar_tblCariGruplari" FromRole="tblCariGruplari" ToRole="tblDepartmanlar" />
+        </EntityType>
+        <EntityType Name="tblCariler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CariGrupId" Type="Int32" />
+          <Property Name="CariTipId" Type="Int32" />
+          <Property Name="CariAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CariUnvan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Adres1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Adres2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VDairesi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VnoTcno" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="SehirId" Type="Int32" />
+          <Property Name="CariTel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CariMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetkiliAdi1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetkiliAdi2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetkiliAdi3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetkiliDep1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetkiliDep2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetkiliDep3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetkiliTel1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetkiliTel2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetkiliTel3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetkiliCep1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetkiliCep2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetkiliCep3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetkiliMail1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetkiliMail2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetkiliMail3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SaveUserId" Type="Int32" />
+          <Property Name="UpdateUserId" Type="Int32" />
+          <Property Name="SaveDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="isActive" Type="Boolean" />
+          <NavigationProperty Name="tblCariGruplari" Relationship="Self.FK_tblCariler_tblCariGruplari" FromRole="tblCariler" ToRole="tblCariGruplari" />
+          <NavigationProperty Name="tblSehirler" Relationship="Self.FK_tblCariler_tblSehirler" FromRole="tblCariler" ToRole="tblSehirler" />
+        </EntityType>
+        <EntityType Name="tblDepartmanlar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GrupId" Type="Int32" />
+          <Property Name="DeptAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isActive" Type="Boolean" />
+          <NavigationProperty Name="tblCariGruplari" Relationship="Self.FK_tblDepartmanlar_tblCariGruplari" FromRole="tblDepartmanlar" ToRole="tblCariGruplari" />
+        </EntityType>
+        <EntityType Name="tblSehirler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sehir" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblCariler" Relationship="Self.FK_tblCariler_tblSehirler" FromRole="tblSehirler" ToRole="tblCariler" />
+        </EntityType>
+        <Association Name="FK_tblCariler_tblCariGruplari">
+          <End Role="tblCariGruplari" Type="Self.tblCariGruplari" Multiplicity="0..1" />
+          <End Role="tblCariler" Type="Self.tblCariler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCariGruplari">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblCariler">
+              <PropertyRef Name="CariGrupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblDepartmanlar_tblCariGruplari">
+          <End Role="tblCariGruplari" Type="Self.tblCariGruplari" Multiplicity="0..1" />
+          <End Role="tblDepartmanlar" Type="Self.tblDepartmanlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCariGruplari">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblDepartmanlar">
+              <PropertyRef Name="GrupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCariler_tblSehirler">
+          <End Role="tblSehirler" Type="Self.tblSehirler" Multiplicity="0..1" />
+          <End Role="tblCariler" Type="Self.tblCariler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSehirler">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tblCariler">
+              <PropertyRef Name="SehirId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ErpProject102Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblCariGruplari" EntityType="Self.tblCariGruplari" />
+          <EntitySet Name="tblCariler" EntityType="Self.tblCariler" />
+          <EntitySet Name="tblDepartmanlar" EntityType="Self.tblDepartmanlar" />
+          <EntitySet Name="tblSehirler" EntityType="Self.tblSehirler" />
+          <AssociationSet Name="FK_tblCariler_tblCariGruplari" Association="Self.FK_tblCariler_tblCariGruplari">
+            <End Role="tblCariGruplari" EntitySet="tblCariGruplari" />
+            <End Role="tblCariler" EntitySet="tblCariler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblDepartmanlar_tblCariGruplari" Association="Self.FK_tblDepartmanlar_tblCariGruplari">
+            <End Role="tblCariGruplari" EntitySet="tblCariGruplari" />
+            <End Role="tblDepartmanlar" EntitySet="tblDepartmanlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCariler_tblSehirler" Association="Self.FK_tblCariler_tblSehirler">
+            <End Role="tblSehirler" EntitySet="tblSehirler" />
+            <End Role="tblCariler" EntitySet="tblCariler" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ErpProject102ModelStoreContainer" CdmEntityContainer="ErpProject102Entities">
+          <EntitySetMapping Name="tblCariGruplari">
+            <EntityTypeMapping TypeName="ErpProject102Model.tblCariGruplari">
+              <MappingFragment StoreEntitySet="tblCariGruplari">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GrupAdi" ColumnName="GrupAdi" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCariler">
+            <EntityTypeMapping TypeName="ErpProject102Model.tblCariler">
+              <MappingFragment StoreEntitySet="tblCariler">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CariGrupId" ColumnName="CariGrupId" />
+                <ScalarProperty Name="CariTipId" ColumnName="CariTipId" />
+                <ScalarProperty Name="CariAdi" ColumnName="CariAdi" />
+                <ScalarProperty Name="CariUnvan" ColumnName="CariUnvan" />
+                <ScalarProperty Name="Adres1" ColumnName="Adres1" />
+                <ScalarProperty Name="Adres2" ColumnName="Adres2" />
+                <ScalarProperty Name="VDairesi" ColumnName="VDairesi" />
+                <ScalarProperty Name="VnoTcno" ColumnName="VnoTcno" />
+                <ScalarProperty Name="SehirId" ColumnName="SehirId" />
+                <ScalarProperty Name="CariTel" ColumnName="CariTel" />
+                <ScalarProperty Name="CariMail" ColumnName="CariMail" />
+                <ScalarProperty Name="YetkiliAdi1" ColumnName="YetkiliAdi1" />
+                <ScalarProperty Name="YetkiliAdi2" ColumnName="YetkiliAdi2" />
+                <ScalarProperty Name="YetkiliAdi3" ColumnName="YetkiliAdi3" />
+                <ScalarProperty Name="YetkiliDep1" ColumnName="YetkiliDep1" />
+                <ScalarProperty Name="YetkiliDep2" ColumnName="YetkiliDep2" />
+                <ScalarProperty Name="YetkiliDep3" ColumnName="YetkiliDep3" />
+                <ScalarProperty Name="YetkiliTel1" ColumnName="YetkiliTel1" />
+                <ScalarProperty Name="YetkiliTel2" ColumnName="YetkiliTel2" />
+                <ScalarProperty Name="YetkiliTel3" ColumnName="YetkiliTel3" />
+                <ScalarProperty Name="YetkiliCep1" ColumnName="YetkiliCep1" />
+                <ScalarProperty Name="YetkiliCep2" ColumnName="YetkiliCep2" />
+                <ScalarProperty Name="YetkiliCep3" ColumnName="YetkiliCep3" />
+                <ScalarProperty Name="YetkiliMail1" ColumnName="YetkiliMail1" />
+                <ScalarProperty Name="YetkiliMail2" ColumnName="YetkiliMail2" />
+                <ScalarProperty Name="YetkiliMail3" ColumnName="YetkiliMail3" />
+                <ScalarProperty Name="SaveUserId" ColumnName="SaveUserId" />
+                <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
+                <ScalarProperty Name="SaveDate" ColumnName="SaveDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDepartmanlar">
+            <EntityTypeMapping TypeName="ErpProject102Model.tblDepartmanlar">
+              <MappingFragment StoreEntitySet="tblDepartmanlar">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GrupId" ColumnName="GrupId" />
+                <ScalarProperty Name="DeptAdi" ColumnName="DeptAdi" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSehirler">
+            <EntityTypeMapping TypeName="ErpProject102Model.tblSehirler">
+              <MappingFragment StoreEntitySet="tblSehirler">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sehir" ColumnName="sehir" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1BC9A60F-C7CF-4075-B210-D83AAFD8BF12}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>IEA_ErpProject102MC_Main</RootNamespace>
+    <AssemblyName>IEA_ErpProject102MC_Main</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BilgiGirisIslemleri\Hastaneler\frmHastaneGirisEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Hastaneler\frmHastaneGirisEkrani.Designer.cs">
+      <DependentUpon>frmHastaneGirisEkrani.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Hastaneler\frmHastanelerListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Hastaneler\frmHastanelerListesi.Designer.cs">
+      <DependentUpon>frmHastanelerListesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ErpProjectModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErpProjectModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ErpProjectModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErpProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ErpProjectModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErpProjectModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblCariGruplari.cs">
+      <DependentUpon>ErpProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblCariler.cs">
+      <DependentUpon>ErpProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblDepartmanlar.cs">
+      <DependentUpon>ErpProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\tblSehirler.cs">
+      <DependentUpon>ErpProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BilgiGirisIslemleri\Hastaneler\frmHastaneGirisEkrani.resx">
+      <DependentUpon>frmHastaneGirisEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EntityDeploy Include="Entity\ErpProjectModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ErpProjectModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entity\ErpProjectModel.edmx.diagram">
+      <DependentUpon>ErpProjectModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entity\ErpProjectModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ErpProjectModel.edmx</DependentUpon>
+      <LastGenOutput>ErpProjectModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\ErpProjectModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ErpProjectModel.edmx</DependentUpon>
+      <LastGenOutput>ErpProjectModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Images\003_46.png" />
+    <Content Include="Images\2_002.png" />
+    <Content Include="Images\apro48x48.png" />
+    <Content Include="Images\Ara32x32.png" />
+    <Content Include="Images\arrow-1176.bmp" />
+    <Content Include="Images\arrow-icon-1176-16x16.ico" />
+    <Content Include="Images\arrow-icon-1176.jpg" />
+    <Content Include="Images\Arrow.png" />
+    <Content Include="Images\bck.png" />
+    <Content Include="Images\bck1.png" />
+    <Content Include="Images\BtnSag1.png" />
+    <Content Include="Images\btn_geri.png" />
+    <Content Include="Images\bul32.png" />
+    <Content Include="Images\bul48.png" />
+    <Content Include="Images\bul64.png" />
+    <Content Include="Images\Cikis24.png" />
+    <Content Include="Images\Cikis32.png" />
+    <Content Include="Images\clean24.png" />
+    <Content Include="Images\clean32.png" />
+    <Content Include="Images\clean48.png" />
+    <Content Include="Images\clean64x61.png" />
+    <Content Include="Images\cop24x24.png" />
+    <Content Include="Images\Depo2018Y.ico" />
+    <Content Include="Images\Disket128x128.png" />
+    <Content Include="Images\Disket24x24.png" />
+    <Content Include="Images\dok.png" />
+    <Content Include="Images\Enter-24.png" />
+    <Content Include="Images\Enter-32.png" />
+    <Content Include="Images\exit-48.png" />
+    <Content Include="Images\exit-64.png" />
+    <Content Include="Images\exit.png" />
+    <Content Include="Images\exit64.png" />
+    <Content Include="Images\find32.png" />
+    <Content Include="Images\firma32.png" />
+    <Content Include="Images\geri.png" />
+    <Content Include="Images\Giris24.png" />
+    <Content Include="Images\Giris32.png" />
+    <Content Include="Images\group24x24.png" />
+    <Content Include="Images\group32x32.png" />
+    <Content Include="Images\grp32x32.png" />
+    <Content Include="Images\hospital-32.png" />
+    <Content Include="Images\ICO\arrow-icon-1176-16x16.ico" />
+    <Content Include="Images\ICO\Move2Red.ico" />
+    <Content Include="Images\ICO\Right3Green.ico" />
+    <Content Include="Images\ICO\RightLeft2Red.ico" />
+    <Content Include="Images\ICO\Rotate270AntiClockwise3Green.ico" />
+    <Content Include="Images\ICO\Rotate360AntiClockwise2Red.ico" />
+    <Content Include="Images\ICO\Rotate90AntiClockwise2Yellow.ico" />
+    <Content Include="Images\ICO\Up1Blue.ico" />
+    <Content Include="Images\ICO\UpDown1Yellow.ico" />
+    <Content Include="Images\ICO\UpRight2Blue.ico" />
+    <Content Include="Images\ihale32x32.png" />
+    <Content Include="Images\ileri.png" />
+    <Content Include="Images\Kapat24x24.png" />
+    <Content Include="Images\Kaydet24x24.png" />
+    <Content Include="Images\list24x24.png" />
+    <Content Include="Images\Move2Red.ico" />
+    <Content Include="Images\preview.jpg" />
+    <Content Include="Images\print-icon24x24.png" />
+    <Content Include="Images\print-icon32x32.png" />
+    <Content Include="Images\prnt-24.png" />
+    <Content Include="Images\prnt-32.png" />
+    <Content Include="Images\prnt-48.png" />
+    <Content Include="Images\Right3Green.ico" />
+    <Content Include="Images\RightLeft2Red.ico" />
+    <Content Include="Images\RightLeft2Red1.ico" />
+    <Content Include="Images\Rotate270AntiClockwise3Green.ico" />
+    <Content Include="Images\Rotate360AntiClockwise2Red.ico" />
+    <Content Include="Images\Rotate90AntiClockwise2Yellow.ico" />
+    <Content Include="Images\Save-icon32x32.png" />
+    <Content Include="Images\Save-icon64x64.png" />
+    <Content Include="Images\Save24x24y.png" />
+    <Content Include="Images\sevk32.png" />
+    <Content Include="Images\Sil24x24.png" />
+    <Content Include="Images\Sil32x32.png" />
+    <Content Include="Images\Sil64.png" />
+    <Content Include="Images\Sil72.png" />
+    <Content Include="Images\stok24.png" />
+    <Content Include="Images\stok48.png" />
+    <Content Include="Images\trmap.jpg" />
+    <Content Include="Images\trmap34.jpg" />
+    <Content Include="Images\trmap68.jpg" />
+    <Content Include="Images\Turkiye.png" />
+    <Content Include="Images\Up1Blue.ico" />
+    <Content Include="Images\Update24x24.png" />
+    <Content Include="Images\Update32x32.png" />
+    <Content Include="Images\UpDown1Yellow.ico" />
+    <Content Include="Images\UpRight2Blue.ico" />
+    <Content Include="Images\urun.png" />
+    <Content Include="Images\urunX32.png" />
+    <Content Include="Images\user.png" />
+    <Content Include="Images\yetki32x32.png" />
+    <None Include="Resources\cop24x24.png" />
+    <None Include="Resources\Update32x32.png" />
+    <None Include="Resources\Save-icon64x64.png" />
+    <None Include="Resources\exit-64.png" />
+    <None Include="Resources\exit64.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
