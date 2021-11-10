@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ErpProject102Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ErpProject102Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblCariGruplari">
           <Key>
             <PropertyRef Name="Id" />
@@ -18,6 +18,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CariKodu" Type="nvarchar" MaxLength="10" />
           <Property Name="CariGrupId" Type="int" />
           <Property Name="CariTipId" Type="int" />
           <Property Name="CariAdi" Type="nvarchar" MaxLength="50" />
@@ -120,8 +121,7 @@
             <End Role="tblDepartmanlar" EntitySet="tblDepartmanlar" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ErpProject102Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -173,6 +173,7 @@
           <Property Name="isActive" Type="Boolean" />
           <NavigationProperty Name="tblCariGruplari" Relationship="Self.FK_tblCariler_tblCariGruplari" FromRole="tblCariler" ToRole="tblCariGruplari" />
           <NavigationProperty Name="tblSehirler" Relationship="Self.FK_tblCariler_tblSehirler" FromRole="tblCariler" ToRole="tblSehirler" />
+          <Property Name="CariKodu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tblDepartmanlar">
           <Key>
@@ -264,6 +265,7 @@
           <EntitySetMapping Name="tblCariler">
             <EntityTypeMapping TypeName="ErpProject102Model.tblCariler">
               <MappingFragment StoreEntitySet="tblCariler">
+                <ScalarProperty Name="CariKodu" ColumnName="CariKodu" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CariGrupId" ColumnName="CariGrupId" />
                 <ScalarProperty Name="CariTipId" ColumnName="CariTipId" />

@@ -127,16 +127,22 @@
   <data name="RightLeft2Red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\ICO\RightLeft2Red.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cop24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cop24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="exit-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="exit64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Sil64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sil64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Ara32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Ara32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cop24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cop24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Sil32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sil32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

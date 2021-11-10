@@ -94,6 +94,7 @@
     <Compile Include="Entity\tblSehirler.cs">
       <DependentUpon>ErpProjectModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Fonksiyonlar\Numaralar.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +243,8 @@
     <Content Include="Images\urunX32.png" />
     <Content Include="Images\user.png" />
     <Content Include="Images\yetki32x32.png" />
+    <None Include="Resources\Sil32x32.png" />
+    <None Include="Resources\Sil64.png" />
     <None Include="Resources\cop24x24.png" />
     <None Include="Resources\Update32x32.png" />
     <None Include="Resources\Save-icon64x64.png" />
