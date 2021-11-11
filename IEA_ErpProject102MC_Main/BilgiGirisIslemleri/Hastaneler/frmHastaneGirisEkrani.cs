@@ -1,5 +1,6 @@
 ﻿using IEA_ErpProject102MC_Main.Entity;
 using IEA_ErpProject102MC_Main.Fonksiyonlar;
+using IEA_ErpProject102MC_Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -70,7 +71,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
                     //ternary ile yapilmis versiyonu
                     //hst.SehirId = txtSehir.SelectedValue != null ? (int)txtSehir.SelectedValue : -1;
                     //int ten farkli bir deger gelirse -1 yap
-                    hst.SehirId = (int?)txtSehir.SelectedValue ?? -1;
+                    hst.SehirId = (int?)txtSehir.SelectedValue ?? null;
                     hst.SaveDate = DateTime.Now;
                     hst.SaveUserId = 1;
                     hst.CariKodu =       hkodu;
@@ -84,13 +85,13 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
                 }
                 else
                 {
-                    MessageBox.Show("Bu kayit alinmistir!");
+                    MessageBox.Show("Bu kayit alinmistir!!!");
                 }
 
             }
             catch (Exception)
             {
-                MessageBox.Show("Ky");
+                MessageBox.Show("Hatali Giris");
             }
         }
 
@@ -128,7 +129,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
                 hst.CariUnvan =     txtHastUnvan.Text;
                 hst.VDairesi = txtVergiD.Text;
                 hst.VnoTcno = txtVnTc.Text;
-                hst.SehirId = (int?)txtSehir.SelectedValue ?? -1;
+                hst.SehirId = (int?)txtSehir.SelectedValue ?? null;
                 hst.UpdateDate = DateTime.Now;
                 hst.UpdateUserId = 1; //hangi kullanıcı hangi kaydi ne zaman degistirir onu kaydetmek adina (tedbir)
                 hst.CariKodu = lblHastaneKodu.Text;
@@ -148,6 +149,15 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
 
         private void btnSil_Click(object sender, EventArgs e)
         {
+            if (secimId > 0)
+            {
+                tblCariler hst = erp.tblCariler.Find(secimId);
+                hst.isActive = false;
+                erp.SaveChanges();
+                MessageBox.Show("Silme Basarili");
+                Temizle();
+                Listele();
+            }
         }
 
         private void btnCikis_Click(object sender, EventArgs e)
@@ -252,8 +262,9 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             Ac(secimId);
         }
 
-        private void Ac(int i)
+        public void Ac(int i)
         {
+            secimId = i;
             try
             {
                 tblCariler hst = erp.tblCariler.Find(i);
@@ -289,6 +300,32 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
                 MessageBox.Show(e.Message);
             }
         }
+        
+        //sanal buton olusturma!
+        protected override void OnLoad(EventArgs e)
+        {
+            var btn = new Button(); //ramde bir buton olusturmus olduk.
+            btn.Size = new Size(25, txtHKoduBul.ClientSize.Height + 0);
+            btn.Location = new Point(txtHKoduBul.ClientSize.Width - btn.Width - 1);
+            btn.Cursor = Cursors.Default;
+            btn.Image = Resources.arrow_1176;
+            txtHKoduBul.Controls.Add(btn);
+
+            base.OnLoad(e);
+            btn.Click += btn_Click;
+        }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms[""]==null)
+            {
+                frmHastanelerListesi frm = new frmHastanelerListesi();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+            }
+            SendToBack();
+        }
+        //son
     }
 }
 

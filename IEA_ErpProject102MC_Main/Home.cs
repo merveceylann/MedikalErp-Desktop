@@ -1,4 +1,6 @@
-﻿using IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler;
+﻿using IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar;
+using IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler;
+using IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +41,10 @@ namespace IEA_ErpProject102MC_Main
             tvBilgiGirisIslemleri.Nodes[2].Nodes.Add("Firma Bilgi Giris Ekrani"); //child
             tvBilgiGirisIslemleri.Nodes[2].Nodes.Add("Firmalar Listesi"); //child
 
+            tvBilgiGirisIslemleri.Nodes.Add("Personeller"); //ucuncu root
+            tvBilgiGirisIslemleri.Nodes[3].Nodes.Add("Personel Bilgi Giris Ekrani"); //child
+            tvBilgiGirisIslemleri.Nodes[3].Nodes.Add("Personeller Listesi"); //child
+
             #endregion
         }
 
@@ -68,15 +74,42 @@ namespace IEA_ErpProject102MC_Main
         private void tvBilgiGirisIslemleri_DoubleClick(object sender, EventArgs e)
         {
             string isim = tvBilgiGirisIslemleri.SelectedNode.Text;
-            if (isim == "Hastane Bilgi Giris Ekrani") //&& Application.OpenForms["Hastane Bilgi Giris Ekrani"] as frmHastaneGirisEkrani is null
+            
+            
+            if (isim == "Hastane Bilgi Giris Ekrani" && Application.OpenForms["Hastane Bilgi Giris Ekrani"] as frmHastaneGirisEkrani is null) //
             {
                 frmHastaneGirisEkrani frm = new frmHastaneGirisEkrani();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
             }
-            else if (isim == "Hastaneler Listesi") //&& Application.OpenForms["Hastaneler Listesi"] as frmHastanelerListesi is null
+            else if (isim == "Hastaneler Listesi" && Application.OpenForms["Hastaneler Listesi"] as frmHastanelerListesi is null) //
             {
                 frmHastanelerListesi frm = new frmHastanelerListesi();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+
+            if (isim == "Doktor Bilgi Giris Ekrani" && Application.OpenForms["frmDoktorGirisEkrani"] as frmDoktorGirisEkrani is null) //
+            {
+                frmDoktorGirisEkrani frm = new frmDoktorGirisEkrani();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Doktorlar Listesi" && Application.OpenForms["frmDoktorlarListesi"] as frmDoktorlarListesi is null) //
+            {
+                frmDoktorlarListesi frm = new frmDoktorlarListesi();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            if (isim == "Personel Bilgi Giris Ekrani" && Application.OpenForms["frmPersonelGirisEkrani"] as frmPersonelGirisEkrani is null) //
+            {
+                frmPersonelGirisEkrani frm = new frmPersonelGirisEkrani();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Personeller Listesi" && Application.OpenForms["frmPersonellerListesi"] as frmPersonellerListesi is null) //
+            {
+                frmPersonellerListesi frm = new frmPersonellerListesi();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
             }

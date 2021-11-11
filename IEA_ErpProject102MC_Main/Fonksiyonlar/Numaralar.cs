@@ -25,5 +25,20 @@ namespace IEA_ErpProject102MC_Main.Fonksiyonlar
                 return "H00000001";
             }
         }
+        public string CariKoduDoktor()
+        {
+            try
+            {
+                //where yaz 
+                var numara = (from s in erp.tblCariler where s.CariGrupId == 2 orderby s.Id  descending select s).First().Id;
+                numara++;
+                string num = "D" + numara.ToString().PadLeft(8, '0');
+                return num;
+            }
+            catch (Exception)
+            {
+                return "D00000001";
+            }
+        }
     }
 }

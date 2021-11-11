@@ -20,11 +20,11 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
         }
 
         private ErpProject102Entities erp = new ErpProject102Entities();
-        private frmHastaneGirisEkrani hge = new frmHastaneGirisEkrani();
+        private frmHastaneGirisEkrani frm = new frmHastaneGirisEkrani();
         private Numaralar n = new Numaralar();
         private int secimId = -1;
 
-        private frmHastaneGirisEkrani acik = (frmHastaneGirisEkrani)Application.OpenForms["frmHastaneGirisEkrani"];
+        //private frmHastaneGirisEkrani acik = (frmHastaneGirisEkrani)Application.OpenForms["frmHastaneGirisEkrani"];
 
         private void frmHastanelerListesi_Load(object sender, EventArgs e)
         {
@@ -37,6 +37,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             int i = 0, sira = 1;
             var lst = (from s in erp.tblCariler
                        where s.isActive == true
+                       where s.CariGrupId == 1
                        select new
                        {
                            id = s.Id,
@@ -64,14 +65,32 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             Liste.ReadOnly = true;
             Liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            hge.lblHastaneKodu.Text = n.CariKoduHastane();
+            frm.lblHastaneKodu.Text = n.CariKoduHastane();
         }
 
-        private void Liste_DoubleClick(object sender, EventArgs e)
+
+        private void Liste_DoubleClick_1(object sender, EventArgs e)
         {
             secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
-            Ac(secimId);
+
+            if (secimId > 0 && Application.OpenForms["frmHastaneGirisEkrani"] == null)
+            {
+                frmHastaneGirisEkrani frm = new frmHastaneGirisEkrani();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+                frm.Ac(secimId);
+                Close();
+            }
+            else if (Application.OpenForms["frmHastaneGirisEkrani"] != null)
+            {
+                frmHastaneGirisEkrani frm = Application.OpenForms["frmHastaneGirisEkrani"] as frmHastaneGirisEkrani;
+                frm.Ac(secimId);
+                Close();
+            }
         }
+
+        //diger formdan aldigimiz icin gerek kalmadi
+        /*
         private void Ac(int i)
         {
             try
@@ -108,7 +127,9 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             {
                 MessageBox.Show(ex.Message);
             }
+        
 
-        }
+        }*/
+
     }
 }

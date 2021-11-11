@@ -55,6 +55,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BilgiGirisIslemleri\Doktorlar\frmDoktorGirisEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Doktorlar\frmDoktorGirisEkrani.Designer.cs">
+      <DependentUpon>frmDoktorGirisEkrani.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Doktorlar\frmDoktorlarListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Doktorlar\frmDoktorlarListesi.Designer.cs">
+      <DependentUpon>frmDoktorlarListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="BilgiGirisIslemleri\Hastaneler\frmHastaneGirisEkrani.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +78,18 @@
     </Compile>
     <Compile Include="BilgiGirisIslemleri\Hastaneler\frmHastanelerListesi.Designer.cs">
       <DependentUpon>frmHastanelerListesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Personeller\frmPersonelGirisEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Personeller\frmPersonelGirisEkrani.Designer.cs">
+      <DependentUpon>frmPersonelGirisEkrani.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Personeller\frmPersonellerListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BilgiGirisIslemleri\Personeller\frmPersonellerListesi.Designer.cs">
+      <DependentUpon>frmPersonellerListesi.cs</DependentUpon>
     </Compile>
     <Compile Include="Entity\ErpProjectModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -94,6 +118,7 @@
     <Compile Include="Entity\tblSehirler.cs">
       <DependentUpon>ErpProjectModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Fonksiyonlar\enumDoktorUnvanlar.cs" />
     <Compile Include="Fonksiyonlar\Numaralar.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -103,11 +128,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BilgiGirisIslemleri\Doktorlar\frmDoktorGirisEkrani.resx">
+      <DependentUpon>frmDoktorGirisEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisIslemleri\Doktorlar\frmDoktorlarListesi.resx">
+      <DependentUpon>frmDoktorlarListesi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BilgiGirisIslemleri\Hastaneler\frmHastaneGirisEkrani.resx">
       <DependentUpon>frmHastaneGirisEkrani.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGirisIslemleri\Hastaneler\frmHastanelerListesi.resx">
       <DependentUpon>frmHastanelerListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisIslemleri\Personeller\frmPersonelGirisEkrani.resx">
+      <DependentUpon>frmPersonelGirisEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisIslemleri\Personeller\frmPersonellerListesi.resx">
+      <DependentUpon>frmPersonellerListesi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -246,6 +283,7 @@
     <Content Include="Images\urunX32.png" />
     <Content Include="Images\user.png" />
     <Content Include="Images\yetki32x32.png" />
+    <None Include="Resources\arrow-1176.bmp" />
     <None Include="Resources\Sil32x32.png" />
     <None Include="Resources\Sil64.png" />
     <None Include="Resources\cop24x24.png" />

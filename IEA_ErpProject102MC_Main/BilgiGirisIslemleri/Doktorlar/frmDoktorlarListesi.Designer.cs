@@ -1,7 +1,7 @@
 ﻿
-namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
+namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
 {
-    partial class frmHastanelerListesi
+    partial class frmDoktorlarListesi
     {
         /// <summary>
         /// Required designer variable.
@@ -42,8 +42,8 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.CariKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CariAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CariTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DoktorGsm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CariMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CariYekili = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlUst.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +60,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.pnlUst.Location = new System.Drawing.Point(0, 0);
             this.pnlUst.Name = "pnlUst";
             this.pnlUst.Size = new System.Drawing.Size(1028, 58);
-            this.pnlUst.TabIndex = 1;
+            this.pnlUst.TabIndex = 5;
             // 
             // lblHastaneKodu
             // 
@@ -133,17 +133,15 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.CariKodu,
             this.CariAdi,
             this.CariTel,
-            this.CariMail,
-            this.CariYekili});
-            this.Liste.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DoktorGsm,
+            this.CariMail});
+            this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Liste.Location = new System.Drawing.Point(0, 58);
-            this.Liste.Margin = new System.Windows.Forms.Padding(2);
             this.Liste.Name = "Liste";
             this.Liste.RowHeadersWidth = 51;
-            this.Liste.RowTemplate.Height = 24;
             this.Liste.Size = new System.Drawing.Size(1028, 386);
-            this.Liste.TabIndex = 2;
-            this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick_1);
+            this.Liste.TabIndex = 8;
+            this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
             // 
             // Id
             // 
@@ -164,53 +162,51 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // CariKodu
             // 
             this.CariKodu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.CariKodu.HeaderText = "Hastene Kodu";
+            this.CariKodu.HeaderText = "Doktor Kodu";
             this.CariKodu.MinimumWidth = 6;
             this.CariKodu.Name = "CariKodu";
-            this.CariKodu.Width = 92;
+            this.CariKodu.Width = 85;
             // 
             // CariAdi
             // 
             this.CariAdi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CariAdi.HeaderText = "Hastane Adi";
+            this.CariAdi.HeaderText = "Doktor Adi";
             this.CariAdi.MinimumWidth = 6;
             this.CariAdi.Name = "CariAdi";
             // 
             // CariTel
             // 
             this.CariTel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.CariTel.HeaderText = "Hastane Telefonu";
+            this.CariTel.HeaderText = "Doktor Telefonu";
             this.CariTel.MinimumWidth = 6;
             this.CariTel.Name = "CariTel";
-            this.CariTel.Width = 107;
+            // 
+            // DoktorGsm
+            // 
+            this.DoktorGsm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.DoktorGsm.HeaderText = "Doktor Gsm";
+            this.DoktorGsm.Name = "DoktorGsm";
+            this.DoktorGsm.Width = 81;
             // 
             // CariMail
             // 
-            this.CariMail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CariMail.HeaderText = "Hastane Mail";
+            this.CariMail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.CariMail.HeaderText = "Doktor Mail";
             this.CariMail.MinimumWidth = 6;
             this.CariMail.Name = "CariMail";
+            this.CariMail.Width = 79;
             // 
-            // CariYekili
-            // 
-            this.CariYekili.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.CariYekili.HeaderText = "Yetkili Kisi";
-            this.CariYekili.MinimumWidth = 6;
-            this.CariYekili.Name = "CariYekili";
-            this.CariYekili.Width = 73;
-            // 
-            // frmHastanelerListesi
+            // frmDoktorlarListesi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 444);
             this.Controls.Add(this.Liste);
             this.Controls.Add(this.pnlUst);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "frmHastanelerListesi";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmHastanelerListesi";
-            this.Load += new System.EventHandler(this.frmHastanelerListesi_Load);
+            this.Name = "frmDoktorlarListesi";
+            this.Text = "frmDoktorlarListesi";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmDoktorlarListesi_Load);
             this.pnlUst.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
             this.ResumeLayout(false);
@@ -231,7 +227,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
         private System.Windows.Forms.DataGridViewTextBoxColumn CariKodu;
         private System.Windows.Forms.DataGridViewTextBoxColumn CariAdi;
         private System.Windows.Forms.DataGridViewTextBoxColumn CariTel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DoktorGsm;
         private System.Windows.Forms.DataGridViewTextBoxColumn CariMail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CariYekili;
     }
 }
