@@ -19,6 +19,8 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
         private Numaralar n = new Numaralar();
         private int secimId = -1;
 
+
+
         public frmHastaneGirisEkrani()
         {
 
@@ -39,31 +41,31 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
                 {
                     tblCariler hst = new tblCariler();
                     hst.isActive = true;
-                    hst.CariAdi = txtHastAdi.Text;
-                    hst.CariMail = txtHastMail.Text;
-                    hst.CariTel = txtHastTel.Text;
-                    hst.YetkiliAdi1 = txtYetAdi1.Text;
-                    hst.YetkiliAdi2 = txtYetAdi2.Text;
-                    hst.YetkiliAdi3 = txtYetAdi3.Text;
-                    hst.YetkiliDep1 = txtYetDep1.Text;
-                    hst.YetkiliDep2 = txtYetDep2.Text;
-                    hst.YetkiliDep3 = txtYetDep3.Text;
-                    hst.YetkiliTel1 = txtYetTel1.Text;
-                    hst.YetkiliTel2 = txtYetTel2.Text;
-                    hst.YetkiliTel3 = txtYetTel3.Text;
-                    hst.YetkiliCep1 = txtYetCep1.Text;
-                    hst.YetkiliCep2 = txtYetCep2.Text;
-                    hst.YetkiliCep3 = txtYetCep3.Text;
-                    hst.YetkiliMail1 = txtYetEmail1.Text;
-                    hst.YetkiliMail2 = txtYetEmail2.Text;
-                    hst.YetkiliMail3 = txtYetEmail3.Text;
-                    hst.Adres1 = txtAdres1.Text;
-                    hst.Adres2 = txtAdres2.Text;
+                    hst.CariAdi =        txtHastAdi.Text;
+                    hst.CariMail =       txtHastMail.Text;
+                    hst.CariTel =        txtHastTel.Text;
+                    hst.YetkiliAdi1 =    txtYetAdi1.Text;
+                    hst.YetkiliAdi2 =    txtYetAdi2.Text;
+                    hst.YetkiliAdi3 =    txtYetAdi3.Text;
+                    hst.YetkiliDep1 =    txtYetDep1.Text;
+                    hst.YetkiliDep2 =    txtYetDep2.Text;
+                    hst.YetkiliDep3 =    txtYetDep3.Text;
+                    hst.YetkiliTel1 =    txtYetTel1.Text;
+                    hst.YetkiliTel2 =    txtYetTel2.Text;
+                    hst.YetkiliTel3 =    txtYetTel3.Text;
+                    hst.YetkiliCep1 =    txtYetCep1.Text;
+                    hst.YetkiliCep2 =    txtYetCep2.Text;
+                    hst.YetkiliCep3 =    txtYetCep3.Text;
+                    hst.YetkiliMail1 =   txtYetEmail1.Text;
+                    hst.YetkiliMail2 =   txtYetEmail2.Text;
+                    hst.YetkiliMail3 =   txtYetEmail3.Text;
+                    hst.Adres1 =         txtAdres1.Text;
+                    hst.Adres2 =         txtAdres2.Text;
                     hst.CariGrupId = 1;
                     hst.CariTipId = 1;
-                    hst.CariUnvan = txtHastUnvan.Text;
-                    hst.VDairesi = txtVergiD.Text;
-                    hst.VnoTcno = txtVnTc.Text;
+                    hst.CariUnvan =      txtHastUnvan.Text;
+                    hst.VDairesi =       txtVergiD.Text;
+                    hst.VnoTcno =        txtVnTc.Text;
                     //hst.SehirId = erp.tblSehirler.First(x => x.sehir == txtSehir.Text).id;
                     //ternary ile yapilmis versiyonu
                     //hst.SehirId = txtSehir.SelectedValue != null ? (int)txtSehir.SelectedValue : -1;
@@ -71,7 +73,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
                     hst.SehirId = (int?)txtSehir.SelectedValue ?? -1;
                     hst.SaveDate = DateTime.Now;
                     hst.SaveUserId = 1;
-                    hst.CariKodu = hkodu;
+                    hst.CariKodu =       hkodu;
 
                     erp.tblCariler.Add(hst);
                     erp.SaveChanges();
@@ -102,28 +104,28 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             try
             {
                 tblCariler hst = erp.tblCariler.Find(secimId);
-                hst.CariAdi = txtHastAdi.Text;
-                hst.CariMail = txtHastMail.Text;
-                hst.CariTel = txtHastTel.Text;
-                hst.YetkiliAdi1 = txtYetAdi1.Text;
-                hst.YetkiliAdi2 = txtYetAdi2.Text;
-                hst.YetkiliAdi3 = txtYetAdi3.Text;
-                hst.YetkiliDep1 = txtYetDep1.Text;
-                hst.YetkiliDep2 = txtYetDep2.Text;
-                hst.YetkiliDep3 = txtYetDep3.Text;
-                hst.YetkiliTel1 = txtYetTel1.Text;
-                hst.YetkiliTel2 = txtYetTel2.Text;
-                hst.YetkiliTel3 = txtYetTel3.Text;
-                hst.YetkiliCep1 = txtYetCep1.Text;
-                hst.YetkiliCep2 = txtYetCep2.Text;
-                hst.YetkiliCep3 = txtYetCep3.Text;
-                hst.YetkiliMail1 = txtYetEmail1.Text;
-                hst.YetkiliMail2 = txtYetEmail2.Text;
-                hst.YetkiliMail3 = txtYetEmail3.Text;
-                hst.Adres1 = txtAdres1.Text;
-                hst.Adres2 = txtAdres2.Text;
+                hst.CariAdi =       txtHastAdi.Text;
+                hst.CariMail =      txtHastMail.Text;
+                hst.CariTel =       txtHastTel.Text;
+                hst.YetkiliAdi1 =   txtYetAdi1.Text;
+                hst.YetkiliAdi2 =   txtYetAdi2.Text;
+                hst.YetkiliAdi3 =   txtYetAdi3.Text;
+                hst.YetkiliDep1 =   txtYetDep1.Text;
+                hst.YetkiliDep2 =   txtYetDep2.Text;
+                hst.YetkiliDep3 =   txtYetDep3.Text;
+                hst.YetkiliTel1 =   txtYetTel1.Text;
+                hst.YetkiliTel2 =   txtYetTel2.Text;
+                hst.YetkiliTel3 =   txtYetTel3.Text;
+                hst.YetkiliCep1 =   txtYetCep1.Text;
+                hst.YetkiliCep2 =   txtYetCep2.Text;
+                hst.YetkiliCep3 =   txtYetCep3.Text;
+                hst.YetkiliMail1 =  txtYetEmail1.Text;
+                hst.YetkiliMail2 =  txtYetEmail2.Text;
+                hst.YetkiliMail3 =  txtYetEmail3.Text;
+                hst.Adres1 =        txtAdres1.Text;
+                hst.Adres2 =        txtAdres2.Text;
                 hst.CariTipId = 1;
-                hst.CariUnvan = txtHastUnvan.Text;
+                hst.CariUnvan =     txtHastUnvan.Text;
                 hst.VDairesi = txtVergiD.Text;
                 hst.VnoTcno = txtVnTc.Text;
                 hst.SehirId = (int?)txtSehir.SelectedValue ?? -1;

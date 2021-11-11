@@ -68,13 +68,13 @@ namespace IEA_ErpProject102MC_Main
         private void tvBilgiGirisIslemleri_DoubleClick(object sender, EventArgs e)
         {
             string isim = tvBilgiGirisIslemleri.SelectedNode.Text;
-            if (isim == "Hastane Bilgi Giris Ekrani" && Application.OpenForms[""] is null)
+            if (isim == "Hastane Bilgi Giris Ekrani") //&& Application.OpenForms["Hastane Bilgi Giris Ekrani"] as frmHastaneGirisEkrani is null
             {
                 frmHastaneGirisEkrani frm = new frmHastaneGirisEkrani();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
             }
-            else if (isim == "Hastaneler Listesi" && Application.OpenForms[""] as frmHastanelerListesi is null)
+            else if (isim == "Hastaneler Listesi") //&& Application.OpenForms["Hastaneler Listesi"] as frmHastanelerListesi is null
             {
                 frmHastanelerListesi frm = new frmHastanelerListesi();
                 frm.MdiParent = Form.ActiveForm;

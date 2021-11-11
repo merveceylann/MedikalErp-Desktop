@@ -106,6 +106,9 @@
     <EmbeddedResource Include="BilgiGirisIslemleri\Hastaneler\frmHastaneGirisEkrani.resx">
       <DependentUpon>frmHastaneGirisEkrani.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BilgiGirisIslemleri\Hastaneler\frmHastanelerListesi.resx">
+      <DependentUpon>frmHastanelerListesi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
