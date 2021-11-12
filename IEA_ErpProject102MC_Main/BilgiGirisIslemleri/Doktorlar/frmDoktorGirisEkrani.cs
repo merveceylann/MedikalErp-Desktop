@@ -18,6 +18,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
         private Numaralar n = new Numaralar();
 
         private int secimId = -1;
+
         public frmDoktorGirisEkrani()
         {
             InitializeComponent();
@@ -94,6 +95,10 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
             string dkodu = n.CariKoduDoktor();
             try
             {
+                if (txtDokAdi.Text == "")
+                {
+                    return;
+                }
                 if (secimId == -1)
                 {
                     tblCariler hst = new tblCariler();
@@ -106,11 +111,15 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
                     hst.Adres1 = txtDokHAdres.Text;
                     hst.Adres2 = txtDokMAdres.Text;
                     hst.CariGrupId = 2;
-                    hst.CariTipId = 2;
+                    hst.CariTipId = 1;
                     hst.CariUnvan = txtDokUnvan.Text;
                     hst.VDairesi = txtDokVergiD.Text;
                     hst.VnoTcno = txtDokVnTc.Text;
-                    hst.SehirId = (int?)txtSehir.SelectedValue ?? null;
+                    //hst.SehirId = (int?)txtSehir.SelectedValue ?? null;
+                    if (txtSehir.SelectedValue!=null)
+                    {
+                        hst.SehirId = (int)txtSehir.SelectedValue;
+                    }
                     hst.SaveDate = DateTime.Now;
                     hst.SaveUserId = 1;
                     hst.CariKodu = dkodu;
@@ -161,6 +170,10 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
         {
             try
             {
+                if (secimId < 0)
+                {
+                    return;
+                }
                 tblCariler hst = erp.tblCariler.Find(secimId);
                 hst.CariAdi = txtDokAdi.Text;
                 hst.CariMail = txtDokMail.Text;
@@ -172,7 +185,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
                 hst.CariUnvan = txtDokUnvan.Text;
                 hst.VDairesi = txtDokVergiD.Text;
                 hst.VnoTcno = txtDokVnTc.Text;
-                hst.SehirId = (int?)txtSehir.SelectedValue ?? null;
+                hst.SehirId = (int?)txtSehir.SelectedValue ?? null;                
                 hst.UpdateDate = DateTime.Now;
                 hst.UpdateUserId = 1; //hangi kullanıcı hangi kaydi ne zaman degistirir onu kaydetmek adina (tedbir)
                 hst.CariKodu = lblDoktorKodu.Text;
@@ -212,7 +225,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
                 txtDokUnvan.Text = hst.CariUnvan;
                 txtDokVergiD.Text = hst.VDairesi;
                 txtDokVnTc.Text = hst.VnoTcno;
-                txtSehir.Text = hst.tblSehirler.sehir;
+                txtSehir.Text = hst.tblSehirler==null ? "" : hst.tblSehirler.sehir;
                 lblDoktorKodu.Text = hst.CariKodu;
             }
             catch (Exception e)
@@ -241,4 +254,3 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
     }
 }
 
-//personel sayfasına ise baslama ve bitis tarihi ekle carilere gel

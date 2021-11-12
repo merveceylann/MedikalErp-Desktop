@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Web ve Mobil Öğle\source\repos\IEA_ErpProject102MC\IEA_ErpProject102MC_Main\Entity\ErpProjectModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\MERVE CEYLAN\Source\Repos\IEA_ErpProject102MC\IEA_ErpProject102MC_Main\Entity\ErpProject102Entities.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

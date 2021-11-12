@@ -1,4 +1,5 @@
 ﻿using IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar;
+using IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Firmalar;
 using IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler;
 using IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller;
 using System;
@@ -110,6 +111,19 @@ namespace IEA_ErpProject102MC_Main
             else if (isim == "Personeller Listesi" && Application.OpenForms["frmPersonellerListesi"] as frmPersonellerListesi is null) //
             {
                 frmPersonellerListesi frm = new frmPersonellerListesi();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+
+            if (isim == "Firma Bilgi Giris Ekrani" && Application.OpenForms["frmPersonelGirisEkrani"] as frmFirmaGirisEkrani is null) //
+            {
+                frmFirmaGirisEkrani frm = new frmFirmaGirisEkrani();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Firmalar Listesi" && Application.OpenForms["frmPersonellerListesi"] as frmFirmalarListesi is null) //
+            {
+                frmFirmalarListesi frm = new frmFirmalarListesi();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
             }

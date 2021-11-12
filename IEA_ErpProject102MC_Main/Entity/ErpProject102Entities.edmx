@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ErpProject102Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ErpProject102Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblCariGruplari">
           <Key>
             <PropertyRef Name="Id" />
@@ -50,6 +50,8 @@
           <Property Name="SaveDate" Type="datetime" />
           <Property Name="UpdateDate" Type="datetime" />
           <Property Name="isActive" Type="bit" />
+          <Property Name="IseBaslamaT" Type="datetime" />
+          <Property Name="IstenAyrilmaT" Type="datetime" />
         </EntityType>
         <EntityType Name="tblDepartmanlar">
           <Key>
@@ -59,6 +61,15 @@
           <Property Name="GrupId" Type="int" />
           <Property Name="DeptAdi" Type="nvarchar" MaxLength="50" />
           <Property Name="isActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblPersonelDetay">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CariId" Type="int" />
+          <Property Name="IsBasiTarih" Type="datetime" />
+          <Property Name="IsBitisTarih" Type="datetime" />
         </EntityType>
         <EntityType Name="tblSehirler">
           <Key>
@@ -103,10 +114,23 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tblPersonelDetay_tblCariler">
+          <End Role="tblCariler" Type="Self.tblCariler" Multiplicity="0..1" />
+          <End Role="tblPersonelDetay" Type="Self.tblPersonelDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCariler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblPersonelDetay">
+              <PropertyRef Name="CariId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ErpProject102ModelStoreContainer">
           <EntitySet Name="tblCariGruplari" EntityType="Self.tblCariGruplari" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblCariler" EntityType="Self.tblCariler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDepartmanlar" EntityType="Self.tblDepartmanlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPersonelDetay" EntityType="Self.tblPersonelDetay" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSehirler" EntityType="Self.tblSehirler" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_tblCariler_tblCariGruplari" Association="Self.FK_tblCariler_tblCariGruplari">
             <End Role="tblCariGruplari" EntitySet="tblCariGruplari" />
@@ -120,8 +144,13 @@
             <End Role="tblCariGruplari" EntitySet="tblCariGruplari" />
             <End Role="tblDepartmanlar" EntitySet="tblDepartmanlar" />
           </AssociationSet>
+          <AssociationSet Name="FK_tblPersonelDetay_tblCariler" Association="Self.FK_tblPersonelDetay_tblCariler">
+            <End Role="tblCariler" EntitySet="tblCariler" />
+            <End Role="tblPersonelDetay" EntitySet="tblPersonelDetay" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ErpProject102Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -140,6 +169,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CariKodu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="CariGrupId" Type="Int32" />
           <Property Name="CariTipId" Type="Int32" />
           <Property Name="CariAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -171,9 +201,11 @@
           <Property Name="SaveDate" Type="DateTime" Precision="3" />
           <Property Name="UpdateDate" Type="DateTime" Precision="3" />
           <Property Name="isActive" Type="Boolean" />
+          <Property Name="IseBaslamaT" Type="DateTime" Precision="3" />
+          <Property Name="IstenAyrilmaT" Type="DateTime" Precision="3" />
           <NavigationProperty Name="tblCariGruplari" Relationship="Self.FK_tblCariler_tblCariGruplari" FromRole="tblCariler" ToRole="tblCariGruplari" />
           <NavigationProperty Name="tblSehirler" Relationship="Self.FK_tblCariler_tblSehirler" FromRole="tblCariler" ToRole="tblSehirler" />
-          <Property Name="CariKodu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblPersonelDetay" Relationship="Self.FK_tblPersonelDetay_tblCariler" FromRole="tblCariler" ToRole="tblPersonelDetay" />
         </EntityType>
         <EntityType Name="tblDepartmanlar">
           <Key>
@@ -184,6 +216,16 @@
           <Property Name="DeptAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="isActive" Type="Boolean" />
           <NavigationProperty Name="tblCariGruplari" Relationship="Self.FK_tblDepartmanlar_tblCariGruplari" FromRole="tblDepartmanlar" ToRole="tblCariGruplari" />
+        </EntityType>
+        <EntityType Name="tblPersonelDetay">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CariId" Type="Int32" />
+          <Property Name="IsBasiTarih" Type="DateTime" Precision="3" />
+          <Property Name="IsBitisTarih" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblCariler" Relationship="Self.FK_tblPersonelDetay_tblCariler" FromRole="tblPersonelDetay" ToRole="tblCariler" />
         </EntityType>
         <EntityType Name="tblSehirler">
           <Key>
@@ -229,10 +271,23 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tblPersonelDetay_tblCariler">
+          <End Role="tblCariler" Type="Self.tblCariler" Multiplicity="0..1" />
+          <End Role="tblPersonelDetay" Type="Self.tblPersonelDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCariler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblPersonelDetay">
+              <PropertyRef Name="CariId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ErpProject102Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblCariGruplari" EntityType="Self.tblCariGruplari" />
           <EntitySet Name="tblCariler" EntityType="Self.tblCariler" />
           <EntitySet Name="tblDepartmanlar" EntityType="Self.tblDepartmanlar" />
+          <EntitySet Name="tblPersonelDetay" EntityType="Self.tblPersonelDetay" />
           <EntitySet Name="tblSehirler" EntityType="Self.tblSehirler" />
           <AssociationSet Name="FK_tblCariler_tblCariGruplari" Association="Self.FK_tblCariler_tblCariGruplari">
             <End Role="tblCariGruplari" EntitySet="tblCariGruplari" />
@@ -245,6 +300,10 @@
           <AssociationSet Name="FK_tblCariler_tblSehirler" Association="Self.FK_tblCariler_tblSehirler">
             <End Role="tblSehirler" EntitySet="tblSehirler" />
             <End Role="tblCariler" EntitySet="tblCariler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblPersonelDetay_tblCariler" Association="Self.FK_tblPersonelDetay_tblCariler">
+            <End Role="tblCariler" EntitySet="tblCariler" />
+            <End Role="tblPersonelDetay" EntitySet="tblPersonelDetay" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -265,8 +324,8 @@
           <EntitySetMapping Name="tblCariler">
             <EntityTypeMapping TypeName="ErpProject102Model.tblCariler">
               <MappingFragment StoreEntitySet="tblCariler">
-                <ScalarProperty Name="CariKodu" ColumnName="CariKodu" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CariKodu" ColumnName="CariKodu" />
                 <ScalarProperty Name="CariGrupId" ColumnName="CariGrupId" />
                 <ScalarProperty Name="CariTipId" ColumnName="CariTipId" />
                 <ScalarProperty Name="CariAdi" ColumnName="CariAdi" />
@@ -298,6 +357,8 @@
                 <ScalarProperty Name="SaveDate" ColumnName="SaveDate" />
                 <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
                 <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="IseBaslamaT" ColumnName="IseBaslamaT" />
+                <ScalarProperty Name="IstenAyrilmaT" ColumnName="IstenAyrilmaT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -308,6 +369,16 @@
                 <ScalarProperty Name="GrupId" ColumnName="GrupId" />
                 <ScalarProperty Name="DeptAdi" ColumnName="DeptAdi" />
                 <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPersonelDetay">
+            <EntityTypeMapping TypeName="ErpProject102Model.tblPersonelDetay">
+              <MappingFragment StoreEntitySet="tblPersonelDetay">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CariId" ColumnName="CariId" />
+                <ScalarProperty Name="IsBasiTarih" ColumnName="IsBasiTarih" />
+                <ScalarProperty Name="IsBitisTarih" ColumnName="IsBitisTarih" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

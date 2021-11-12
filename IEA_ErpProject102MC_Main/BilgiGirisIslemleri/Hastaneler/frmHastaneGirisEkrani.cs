@@ -20,11 +20,8 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
         private Numaralar n = new Numaralar();
         private int secimId = -1;
 
-
-
         public frmHastaneGirisEkrani()
         {
-
             InitializeComponent();
         }
 
@@ -38,6 +35,10 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             string hkodu = n.CariKoduHastane();
             try
             {
+                if (txtHastAdi.Text == "")
+                {
+                    return;
+                }
                 if (secimId==-1)
                 {
                     tblCariler hst = new tblCariler();
@@ -71,7 +72,11 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
                     //ternary ile yapilmis versiyonu
                     //hst.SehirId = txtSehir.SelectedValue != null ? (int)txtSehir.SelectedValue : -1;
                     //int ten farkli bir deger gelirse -1 yap
-                    hst.SehirId = (int?)txtSehir.SelectedValue ?? null;
+                    //hst.SehirId = (int?)txtSehir.SelectedValue ?? null;
+                    if (txtSehir.SelectedValue != null)
+                    {
+                        hst.SehirId = (int)txtSehir.SelectedValue;
+                    }
                     hst.SaveDate = DateTime.Now;
                     hst.SaveUserId = 1;
                     hst.CariKodu =       hkodu;
@@ -104,6 +109,10 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
         {
             try
             {
+                if (secimId < 0)
+                {
+                    return;
+                }
                 tblCariler hst = erp.tblCariler.Find(secimId);
                 hst.CariAdi =       txtHastAdi.Text;
                 hst.CariMail =      txtHastMail.Text;
@@ -226,6 +235,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             int i = 0, sira = 1;
             var lst = (from s in erp.tblCariler
                        where s.isActive == true
+                       where s.CariGrupId==1
                        select new
                        {
                            id = s.Id,
@@ -292,7 +302,8 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
                 txtHastUnvan.Text = hst.CariUnvan;
                 txtVergiD.Text = hst.VDairesi;
                 txtVnTc.Text = hst.VnoTcno;
-                txtSehir.Text = hst.tblSehirler.sehir;
+                //txtSehir.Text = hst.tblSehirler.sehir;
+                txtSehir.Text = hst.tblSehirler == null ? "" : hst.tblSehirler.sehir;
                 lblHastaneKodu.Text = hst.CariKodu;
             }
             catch (Exception e)
@@ -328,5 +339,3 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
         //son
     }
 }
-
-//hastane listesine cift tiklayinca guncelleme ekranina gidecek oradaki kayitlar. textboxlar dolacak.
