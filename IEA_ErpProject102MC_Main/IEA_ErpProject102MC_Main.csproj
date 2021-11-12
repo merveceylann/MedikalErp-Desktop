@@ -134,6 +134,7 @@
       <DependentUpon>ErpProject102Entities.tt</DependentUpon>
     </Compile>
     <Compile Include="Fonksiyonlar\enumDoktorUnvanlar.cs" />
+    <Compile Include="Fonksiyonlar\enumFirmaTipi.cs" />
     <Compile Include="Fonksiyonlar\enumPersonelUnvanlar.cs" />
     <Compile Include="Fonksiyonlar\Numaralar.cs" />
     <Compile Include="Home.cs">

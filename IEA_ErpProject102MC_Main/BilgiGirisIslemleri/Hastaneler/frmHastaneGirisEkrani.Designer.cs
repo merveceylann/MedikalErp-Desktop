@@ -38,6 +38,13 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.btnKayit = new System.Windows.Forms.Button();
             this.pnlAlt = new System.Windows.Forms.Panel();
             this.Liste = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CariYetkili = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -81,13 +88,6 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.pnlOrta = new System.Windows.Forms.Panel();
             this.txtHKoduBul = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CariKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CariAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CariTel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CariMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CariYetkili = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlUst.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.pnlOrta.SuspendLayout();
@@ -103,7 +103,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.pnlUst.Controls.Add(this.btnKayit);
             this.pnlUst.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlUst.Location = new System.Drawing.Point(0, 0);
-            this.pnlUst.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlUst.Margin = new System.Windows.Forms.Padding(4);
             this.pnlUst.Name = "pnlUst";
             this.pnlUst.Size = new System.Drawing.Size(1371, 71);
             this.pnlUst.TabIndex = 0;
@@ -126,7 +126,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.btnCikis.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.exit_64;
             this.btnCikis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCikis.Location = new System.Drawing.Point(1296, 10);
-            this.btnCikis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCikis.Margin = new System.Windows.Forms.Padding(4);
             this.btnCikis.Name = "btnCikis";
             this.btnCikis.Size = new System.Drawing.Size(60, 49);
             this.btnCikis.TabIndex = 3;
@@ -138,7 +138,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.btnTemizle.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.Sil32x32;
             this.btnTemizle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnTemizle.Location = new System.Drawing.Point(204, 16);
-            this.btnTemizle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTemizle.Margin = new System.Windows.Forms.Padding(4);
             this.btnTemizle.Name = "btnTemizle";
             this.btnTemizle.Size = new System.Drawing.Size(53, 48);
             this.btnTemizle.TabIndex = 2;
@@ -150,7 +150,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.btnSil.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.cop24x24;
             this.btnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSil.Location = new System.Drawing.Point(143, 15);
-            this.btnSil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSil.Margin = new System.Windows.Forms.Padding(4);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(53, 49);
             this.btnSil.TabIndex = 2;
@@ -162,7 +162,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.btnGuncelle.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.Update32x32;
             this.btnGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnGuncelle.Location = new System.Drawing.Point(81, 15);
-            this.btnGuncelle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuncelle.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.Size = new System.Drawing.Size(53, 49);
             this.btnGuncelle.TabIndex = 1;
@@ -174,7 +174,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.btnKayit.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.Save_icon64x64;
             this.btnKayit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnKayit.Location = new System.Drawing.Point(20, 15);
-            this.btnKayit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnKayit.Margin = new System.Windows.Forms.Padding(4);
             this.btnKayit.Name = "btnKayit";
             this.btnKayit.Size = new System.Drawing.Size(53, 49);
             this.btnKayit.TabIndex = 0;
@@ -185,7 +185,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // 
             this.pnlAlt.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlAlt.Location = new System.Drawing.Point(0, 584);
-            this.pnlAlt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlAlt.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAlt.Name = "pnlAlt";
             this.pnlAlt.Size = new System.Drawing.Size(1371, 34);
             this.pnlAlt.TabIndex = 1;
@@ -203,18 +203,71 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.CariYetkili});
             this.Liste.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Liste.Location = new System.Drawing.Point(0, 438);
-            this.Liste.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Liste.Margin = new System.Windows.Forms.Padding(4);
             this.Liste.Name = "Liste";
             this.Liste.RowHeadersWidth = 51;
             this.Liste.Size = new System.Drawing.Size(1371, 146);
             this.Liste.TabIndex = 2;
             this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
             // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            this.Id.Width = 125;
+            // 
+            // Sira
+            // 
+            this.Sira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Sira.HeaderText = "Sira";
+            this.Sira.MinimumWidth = 6;
+            this.Sira.Name = "Sira";
+            this.Sira.Width = 62;
+            // 
+            // CariKodu
+            // 
+            this.CariKodu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.CariKodu.HeaderText = "Firma Kodu";
+            this.CariKodu.MinimumWidth = 6;
+            this.CariKodu.Name = "CariKodu";
+            // 
+            // CariAdi
+            // 
+            this.CariAdi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CariAdi.HeaderText = "Firma Adi";
+            this.CariAdi.MinimumWidth = 6;
+            this.CariAdi.Name = "CariAdi";
+            // 
+            // CariTel
+            // 
+            this.CariTel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.CariTel.HeaderText = "Firma Telefonu";
+            this.CariTel.MinimumWidth = 6;
+            this.CariTel.Name = "CariTel";
+            this.CariTel.Width = 121;
+            // 
+            // CariMail
+            // 
+            this.CariMail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.CariMail.HeaderText = "Firma Mail";
+            this.CariMail.MinimumWidth = 6;
+            this.CariMail.Name = "CariMail";
+            this.CariMail.Width = 93;
+            // 
+            // CariYetkili
+            // 
+            this.CariYetkili.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CariYetkili.HeaderText = "Yetkili Kisi";
+            this.CariYetkili.MinimumWidth = 6;
+            this.CariYetkili.Name = "CariYetkili";
+            // 
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.splitter1.Location = new System.Drawing.Point(0, 424);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(4);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(1371, 14);
             this.splitter1.TabIndex = 3;
@@ -333,7 +386,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtYetAdi1
             // 
             this.txtYetAdi1.Location = new System.Drawing.Point(500, 33);
-            this.txtYetAdi1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtYetAdi1.Margin = new System.Windows.Forms.Padding(4);
             this.txtYetAdi1.Name = "txtYetAdi1";
             this.txtYetAdi1.Size = new System.Drawing.Size(167, 22);
             this.txtYetAdi1.TabIndex = 9;
@@ -361,7 +414,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtYetAdi2
             // 
             this.txtYetAdi2.Location = new System.Drawing.Point(500, 65);
-            this.txtYetAdi2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtYetAdi2.Margin = new System.Windows.Forms.Padding(4);
             this.txtYetAdi2.Name = "txtYetAdi2";
             this.txtYetAdi2.Size = new System.Drawing.Size(167, 22);
             this.txtYetAdi2.TabIndex = 13;
@@ -371,7 +424,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.txtYetDep2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtYetDep2.FormattingEnabled = true;
             this.txtYetDep2.Location = new System.Drawing.Point(677, 65);
-            this.txtYetDep2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtYetDep2.Margin = new System.Windows.Forms.Padding(4);
             this.txtYetDep2.Name = "txtYetDep2";
             this.txtYetDep2.Size = new System.Drawing.Size(160, 24);
             this.txtYetDep2.TabIndex = 14;
@@ -379,7 +432,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtYetAdi3
             // 
             this.txtYetAdi3.Location = new System.Drawing.Point(500, 96);
-            this.txtYetAdi3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtYetAdi3.Margin = new System.Windows.Forms.Padding(4);
             this.txtYetAdi3.Name = "txtYetAdi3";
             this.txtYetAdi3.Size = new System.Drawing.Size(167, 22);
             this.txtYetAdi3.TabIndex = 18;
@@ -389,7 +442,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.txtYetDep3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtYetDep3.FormattingEnabled = true;
             this.txtYetDep3.Location = new System.Drawing.Point(677, 97);
-            this.txtYetDep3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtYetDep3.Margin = new System.Windows.Forms.Padding(4);
             this.txtYetDep3.Name = "txtYetDep3";
             this.txtYetDep3.Size = new System.Drawing.Size(160, 24);
             this.txtYetDep3.TabIndex = 19;
@@ -397,7 +450,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtYetTel1
             // 
             this.txtYetTel1.Location = new System.Drawing.Point(847, 31);
-            this.txtYetTel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtYetTel1.Margin = new System.Windows.Forms.Padding(4);
             this.txtYetTel1.Mask = "(999) 000-0000";
             this.txtYetTel1.Name = "txtYetTel1";
             this.txtYetTel1.Size = new System.Drawing.Size(115, 22);
@@ -406,7 +459,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtYetCep1
             // 
             this.txtYetCep1.Location = new System.Drawing.Point(968, 32);
-            this.txtYetCep1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtYetCep1.Margin = new System.Windows.Forms.Padding(4);
             this.txtYetCep1.Mask = "(999) 000-0000";
             this.txtYetCep1.Name = "txtYetCep1";
             this.txtYetCep1.Size = new System.Drawing.Size(115, 22);
@@ -415,7 +468,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtYetTel2
             // 
             this.txtYetTel2.Location = new System.Drawing.Point(847, 63);
-            this.txtYetTel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtYetTel2.Margin = new System.Windows.Forms.Padding(4);
             this.txtYetTel2.Mask = "(999) 000-0000";
             this.txtYetTel2.Name = "txtYetTel2";
             this.txtYetTel2.Size = new System.Drawing.Size(112, 22);
@@ -424,7 +477,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtYetCep2
             // 
             this.txtYetCep2.Location = new System.Drawing.Point(968, 64);
-            this.txtYetCep2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtYetCep2.Margin = new System.Windows.Forms.Padding(4);
             this.txtYetCep2.Mask = "(999) 000-0000";
             this.txtYetCep2.Name = "txtYetCep2";
             this.txtYetCep2.Size = new System.Drawing.Size(115, 22);
@@ -433,7 +486,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtYetTel3
             // 
             this.txtYetTel3.Location = new System.Drawing.Point(847, 96);
-            this.txtYetTel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtYetTel3.Margin = new System.Windows.Forms.Padding(4);
             this.txtYetTel3.Mask = "(999) 000-0000";
             this.txtYetTel3.Name = "txtYetTel3";
             this.txtYetTel3.Size = new System.Drawing.Size(112, 22);
@@ -442,7 +495,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtYetCep3
             // 
             this.txtYetCep3.Location = new System.Drawing.Point(968, 97);
-            this.txtYetCep3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtYetCep3.Margin = new System.Windows.Forms.Padding(4);
             this.txtYetCep3.Mask = "(999) 000-0000";
             this.txtYetCep3.Name = "txtYetCep3";
             this.txtYetCep3.Size = new System.Drawing.Size(115, 22);
@@ -451,7 +504,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtYetEmail1
             // 
             this.txtYetEmail1.Location = new System.Drawing.Point(1097, 32);
-            this.txtYetEmail1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtYetEmail1.Margin = new System.Windows.Forms.Padding(4);
             this.txtYetEmail1.Name = "txtYetEmail1";
             this.txtYetEmail1.Size = new System.Drawing.Size(205, 22);
             this.txtYetEmail1.TabIndex = 13;
@@ -459,7 +512,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtYetEmail2
             // 
             this.txtYetEmail2.Location = new System.Drawing.Point(1097, 64);
-            this.txtYetEmail2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtYetEmail2.Margin = new System.Windows.Forms.Padding(4);
             this.txtYetEmail2.Name = "txtYetEmail2";
             this.txtYetEmail2.Size = new System.Drawing.Size(205, 22);
             this.txtYetEmail2.TabIndex = 17;
@@ -467,7 +520,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtYetEmail3
             // 
             this.txtYetEmail3.Location = new System.Drawing.Point(1097, 97);
-            this.txtYetEmail3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtYetEmail3.Margin = new System.Windows.Forms.Padding(4);
             this.txtYetEmail3.Name = "txtYetEmail3";
             this.txtYetEmail3.Size = new System.Drawing.Size(205, 22);
             this.txtYetEmail3.TabIndex = 22;
@@ -486,7 +539,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // 
             this.txtHastTipi.FormattingEnabled = true;
             this.txtHastTipi.Location = new System.Drawing.Point(783, 256);
-            this.txtHastTipi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHastTipi.Margin = new System.Windows.Forms.Padding(4);
             this.txtHastTipi.Name = "txtHastTipi";
             this.txtHastTipi.Size = new System.Drawing.Size(160, 24);
             this.txtHastTipi.TabIndex = 0;
@@ -494,7 +547,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtHastAdi
             // 
             this.txtHastAdi.Location = new System.Drawing.Point(145, 39);
-            this.txtHastAdi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHastAdi.Margin = new System.Windows.Forms.Padding(4);
             this.txtHastAdi.Name = "txtHastAdi";
             this.txtHastAdi.Size = new System.Drawing.Size(325, 22);
             this.txtHastAdi.TabIndex = 1;
@@ -502,7 +555,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtHastUnvan
             // 
             this.txtHastUnvan.Location = new System.Drawing.Point(145, 71);
-            this.txtHastUnvan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHastUnvan.Margin = new System.Windows.Forms.Padding(4);
             this.txtHastUnvan.Name = "txtHastUnvan";
             this.txtHastUnvan.Size = new System.Drawing.Size(325, 22);
             this.txtHastUnvan.TabIndex = 2;
@@ -510,7 +563,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtAdres1
             // 
             this.txtAdres1.Location = new System.Drawing.Point(145, 137);
-            this.txtAdres1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAdres1.Margin = new System.Windows.Forms.Padding(4);
             this.txtAdres1.Multiline = true;
             this.txtAdres1.Name = "txtAdres1";
             this.txtAdres1.Size = new System.Drawing.Size(325, 53);
@@ -519,7 +572,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtAdres2
             // 
             this.txtAdres2.Location = new System.Drawing.Point(569, 130);
-            this.txtAdres2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAdres2.Margin = new System.Windows.Forms.Padding(4);
             this.txtAdres2.Multiline = true;
             this.txtAdres2.Name = "txtAdres2";
             this.txtAdres2.Size = new System.Drawing.Size(325, 53);
@@ -528,7 +581,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtHastTel
             // 
             this.txtHastTel.Location = new System.Drawing.Point(145, 197);
-            this.txtHastTel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHastTel.Margin = new System.Windows.Forms.Padding(4);
             this.txtHastTel.Mask = "(999) 000-0000";
             this.txtHastTel.Name = "txtHastTel";
             this.txtHastTel.Size = new System.Drawing.Size(132, 22);
@@ -537,7 +590,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtHastMail
             // 
             this.txtHastMail.Location = new System.Drawing.Point(145, 228);
-            this.txtHastMail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHastMail.Margin = new System.Windows.Forms.Padding(4);
             this.txtHastMail.Name = "txtHastMail";
             this.txtHastMail.Size = new System.Drawing.Size(216, 22);
             this.txtHastMail.TabIndex = 7;
@@ -547,7 +600,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.txtYetDep1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtYetDep1.FormattingEnabled = true;
             this.txtYetDep1.Location = new System.Drawing.Point(677, 33);
-            this.txtYetDep1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtYetDep1.Margin = new System.Windows.Forms.Padding(4);
             this.txtYetDep1.Name = "txtYetDep1";
             this.txtYetDep1.Size = new System.Drawing.Size(160, 24);
             this.txtYetDep1.TabIndex = 10;
@@ -557,7 +610,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.txtSehir.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtSehir.FormattingEnabled = true;
             this.txtSehir.Location = new System.Drawing.Point(145, 103);
-            this.txtSehir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSehir.Margin = new System.Windows.Forms.Padding(4);
             this.txtSehir.Name = "txtSehir";
             this.txtSehir.Size = new System.Drawing.Size(216, 24);
             this.txtSehir.TabIndex = 3;
@@ -565,7 +618,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtVnTc
             // 
             this.txtVnTc.Location = new System.Drawing.Point(480, 260);
-            this.txtVnTc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtVnTc.Margin = new System.Windows.Forms.Padding(4);
             this.txtVnTc.Mask = "00000000000";
             this.txtVnTc.Name = "txtVnTc";
             this.txtVnTc.Size = new System.Drawing.Size(116, 22);
@@ -574,7 +627,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtVergiD
             // 
             this.txtVergiD.Location = new System.Drawing.Point(145, 260);
-            this.txtVergiD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtVergiD.Margin = new System.Windows.Forms.Padding(4);
             this.txtVergiD.Name = "txtVergiD";
             this.txtVergiD.Size = new System.Drawing.Size(247, 22);
             this.txtVergiD.TabIndex = 8;
@@ -624,7 +677,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.pnlOrta.Controls.Add(this.txtYetDep2);
             this.pnlOrta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlOrta.Location = new System.Drawing.Point(0, 71);
-            this.pnlOrta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlOrta.Margin = new System.Windows.Forms.Padding(4);
             this.pnlOrta.Name = "pnlOrta";
             this.pnlOrta.Size = new System.Drawing.Size(1371, 353);
             this.pnlOrta.TabIndex = 4;
@@ -632,7 +685,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             // txtHKoduBul
             // 
             this.txtHKoduBul.Location = new System.Drawing.Point(20, 7);
-            this.txtHKoduBul.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHKoduBul.Margin = new System.Windows.Forms.Padding(4);
             this.txtHKoduBul.Name = "txtHKoduBul";
             this.txtHKoduBul.Size = new System.Drawing.Size(451, 22);
             this.txtHKoduBul.TabIndex = 23;
@@ -647,60 +700,6 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.label4.Text = "Adres 2 :";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            this.Id.Width = 125;
-            // 
-            // Sira
-            // 
-            this.Sira.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Sira.HeaderText = "Sira";
-            this.Sira.MinimumWidth = 6;
-            this.Sira.Name = "Sira";
-            this.Sira.Width = 62;
-            // 
-            // CariKodu
-            // 
-            this.CariKodu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.CariKodu.HeaderText = "Firma Kodu";
-            this.CariKodu.MinimumWidth = 6;
-            this.CariKodu.Name = "CariKodu";
-            this.CariKodu.Width = 109;
-            // 
-            // CariAdi
-            // 
-            this.CariAdi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CariAdi.HeaderText = "Firma Adi";
-            this.CariAdi.MinimumWidth = 6;
-            this.CariAdi.Name = "CariAdi";
-            // 
-            // CariTel
-            // 
-            this.CariTel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.CariTel.HeaderText = "Firma Telefonu";
-            this.CariTel.MinimumWidth = 6;
-            this.CariTel.Name = "CariTel";
-            this.CariTel.Width = 132;
-            // 
-            // CariMail
-            // 
-            this.CariMail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.CariMail.HeaderText = "Firma Mail";
-            this.CariMail.MinimumWidth = 6;
-            this.CariMail.Name = "CariMail";
-            this.CariMail.Width = 101;
-            // 
-            // CariYetkili
-            // 
-            this.CariYetkili.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CariYetkili.HeaderText = "Yetkili Kisi";
-            this.CariYetkili.MinimumWidth = 6;
-            this.CariYetkili.Name = "CariYetkili";
-            // 
             // frmHastaneGirisEkrani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -712,7 +711,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
             this.Controls.Add(this.Liste);
             this.Controls.Add(this.pnlAlt);
             this.Controls.Add(this.pnlUst);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmHastaneGirisEkrani";
             this.Text = "frmHastaneGirisEkrani";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

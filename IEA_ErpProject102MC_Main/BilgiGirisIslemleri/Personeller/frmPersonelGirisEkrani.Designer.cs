@@ -31,6 +31,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller
         {
             this.txtPGsm = new System.Windows.Forms.MaskedTextBox();
             this.pnlOrta = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.txtPUnvan = new System.Windows.Forms.ComboBox();
             this.txtPBitis = new System.Windows.Forms.DateTimePicker();
             this.txtPBaslama = new System.Windows.Forms.DateTimePicker();
@@ -70,7 +71,6 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller
             this.pnlAlt = new System.Windows.Forms.Panel();
             this.pnlUst = new System.Windows.Forms.Panel();
             this.btnGuncelle = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.pnlOrta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
             this.pnlUst.SuspendLayout();
@@ -113,8 +113,18 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller
             this.pnlOrta.Location = new System.Drawing.Point(0, 71);
             this.pnlOrta.Margin = new System.Windows.Forms.Padding(4);
             this.pnlOrta.Name = "pnlOrta";
-            this.pnlOrta.Size = new System.Drawing.Size(1379, 315);
+            this.pnlOrta.Size = new System.Drawing.Size(1379, 291);
             this.pnlOrta.TabIndex = 14;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(926, 102);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(167, 21);
+            this.checkBox1.TabIndex = 27;
+            this.checkBox1.Text = "Is Bitis Tarihi Eklensin";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // txtPUnvan
             // 
@@ -359,10 +369,10 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitter1.Location = new System.Drawing.Point(0, 386);
+            this.splitter1.Location = new System.Drawing.Point(0, 362);
             this.splitter1.Margin = new System.Windows.Forms.Padding(4);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(1379, 14);
+            this.splitter1.Size = new System.Drawing.Size(1379, 20);
             this.splitter1.TabIndex = 13;
             this.splitter1.TabStop = false;
             // 
@@ -380,11 +390,11 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller
             this.CariBaslama,
             this.CariBitis});
             this.Liste.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Liste.Location = new System.Drawing.Point(0, 400);
+            this.Liste.Location = new System.Drawing.Point(0, 382);
             this.Liste.Margin = new System.Windows.Forms.Padding(4);
             this.Liste.Name = "Liste";
             this.Liste.RowHeadersWidth = 51;
-            this.Liste.Size = new System.Drawing.Size(1379, 146);
+            this.Liste.Size = new System.Drawing.Size(1379, 164);
             this.Liste.TabIndex = 12;
             this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
             // 
@@ -506,16 +516,6 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller
             this.btnGuncelle.TabIndex = 1;
             this.btnGuncelle.UseVisualStyleBackColor = true;
             this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(926, 102);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(167, 21);
-            this.checkBox1.TabIndex = 27;
-            this.checkBox1.Text = "Is Bitis Tarihi Eklensin";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // frmPersonelGirisEkrani
             // 

@@ -1,5 +1,6 @@
 ﻿using IEA_ErpProject102MC_Main.Entity;
 using IEA_ErpProject102MC_Main.Fonksiyonlar;
+using IEA_ErpProject102MC_Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +32,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Firmalar
 
         private void ComboDoldur()
         {
+            txtFTipi.DataSource = Enum.GetValues(typeof(enumFirmaTipi));
             var dep1 = erp.tblDepartmanlar.Where(x => x.GrupId == 3).ToList();
             var dep2 = erp.tblDepartmanlar.Where(x => x.GrupId == 3).ToList();
             var dep3 = erp.tblDepartmanlar.Where(x => x.GrupId == 3).ToList();
@@ -91,7 +93,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Firmalar
                     hst.Adres1 = txtAdres1.Text;
                     hst.Adres2 = txtAdres2.Text;
                     hst.CariGrupId = 3;
-                    hst.CariTipId = 1;
+                    hst.CariTipId = (int)txtFTipi.SelectedValue;
                     hst.VDairesi = txtVergiD.Text;
                     hst.VnoTcno = txtVnTc.Text;
                     
@@ -216,7 +218,10 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Firmalar
                 hst.YetkiliMail3 = txtYetEmail3.Text;
                 hst.Adres1 = txtAdres1.Text;
                 hst.Adres2 = txtAdres2.Text;
-                hst.CariTipId = 1;
+                if (txtFTipi.Text!="")
+                {
+                    hst.CariTipId = (int)txtFTipi.SelectedValue;
+                }                
                 hst.VDairesi = txtVergiD.Text;
                 hst.VnoTcno = txtVnTc.Text;
                 hst.SehirId = (int?)txtSehir.SelectedValue ?? null;
@@ -273,6 +278,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Firmalar
                 txtVnTc.Text = hst.VnoTcno;
                 //txtSehir.Text = hst.tblSehirler.sehir;
                 txtSehir.Text = hst.tblSehirler == null ? "" : hst.tblSehirler.sehir;
+                txtFTipi.Text = Enum.GetName(typeof(enumFirmaTipi), hst.CariTipId);
                 lblFirmaKodu.Text = hst.CariKodu;
             }
             catch (Exception e)
@@ -297,6 +303,30 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Firmalar
                 Temizle();
                 Listele();
             }
+        }
+        
+        protected override void OnLoad(EventArgs e)
+        {
+            var btn = new Button(); //ramde bir buton olusturmus olduk.
+            btn.Size = new Size(25, txtHKoduBul.ClientSize.Height + 0);
+            btn.Location = new Point(txtHKoduBul.ClientSize.Width - btn.Width - 1);
+            btn.Cursor = Cursors.Default;
+            btn.Image = Resources.arrow_1176;
+            txtHKoduBul.Controls.Add(btn);
+
+            base.OnLoad(e);
+            btn.Click += btn_Click;
+        }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms[""] == null)
+            {
+                frmFirmalarListesi frm = new frmFirmalarListesi();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+            }
+            SendToBack();
         }
     }
 }

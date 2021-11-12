@@ -254,3 +254,9 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
     }
 }
 
+//SKTsi olmayan urunlerin de 1 senelik surelerini yapcaz.
+//homeda buton2 ye ve tv2 ye menu olustur.
+//tv2= tvUrunIslemleri
+//btnUrunGiris
+//abstrack concret
+//generic ler

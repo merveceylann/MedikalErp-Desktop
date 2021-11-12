@@ -1,5 +1,6 @@
 ﻿using IEA_ErpProject102MC_Main.Entity;
 using IEA_ErpProject102MC_Main.Fonksiyonlar;
+using IEA_ErpProject102MC_Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -259,6 +260,29 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller
         private void txtPBitis_ValueChanged(object sender, EventArgs e)
         {
             txtPBitis.CustomFormat = "dd.MM.yyyy";
+        }
+        protected override void OnLoad(EventArgs e)
+        {
+            var btn = new Button(); //ramde bir buton olusturmus olduk.
+            btn.Size = new Size(25, txtHKoduBul.ClientSize.Height + 0);
+            btn.Location = new Point(txtHKoduBul.ClientSize.Width - btn.Width - 1);
+            btn.Cursor = Cursors.Default;
+            btn.Image = Resources.arrow_1176;
+            txtHKoduBul.Controls.Add(btn);
+
+            base.OnLoad(e);
+            btn.Click += btn_Click;
+        }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms[""] == null)
+            {
+                frmPersonellerListesi frm = new frmPersonellerListesi();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+            }
+            SendToBack();
         }
     }
 }
