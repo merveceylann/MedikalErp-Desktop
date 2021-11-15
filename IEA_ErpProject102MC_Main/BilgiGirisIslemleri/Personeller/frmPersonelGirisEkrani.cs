@@ -38,7 +38,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller
             var lst = (from s in erp.tblPersonelDetay
                        where s.tblCariler.isActive == true 
                        where s.tblCariler.CariGrupId == 4
-                       select new
+                       select new  //butun alanlar degil de belli basli alanlar gelsin istedik
                        {
                            id = s.Id,
                            pkodu = s.tblCariler.CariKodu,

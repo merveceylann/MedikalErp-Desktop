@@ -201,6 +201,9 @@
     <EmbeddedResource Include="UrunIslemleri\frmUrunBilgiGirisEkrani.resx">
       <DependentUpon>frmUrunBilgiGirisEkrani.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UrunIslemleri\frmUrunlerListesi.resx">
+      <DependentUpon>frmUrunlerListesi.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Entity\ErpProject102Entities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ErpProject102Entities.Designer.cs</LastGenOutput>

@@ -64,16 +64,27 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
             Liste.ReadOnly = true;
             Liste.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            lblUrunKodu.Text = n.CariKoduUrun();
+            lblUrunKodu.Text = n.UrunGenelKodu();
+            //txtUKoduBul.Text = n.UrunGenelKodu();
         }
         private void ComboDoldur()
         {
             txtParaB.DataSource = Enum.GetValues(typeof(enumParaBirimi));
             txtKulTarih.DataSource = Enum.GetValues(typeof(enumTarih));
             txtTFirmaId.DataSource = Enum.GetValues(typeof(enumFirmaTipi));
+            
+            /*
+            Distributor.DataSource=(from s in erp.tblCariler
+                                      where s.CariGrupId==3 
+                                      where s.CariTipID==1
+                                      select s).ToList();
+            Distributor.ValueMember = "Id";
+            Distributor.DisplayMember = "Tedarikciii";
+            Distributor.SelectedIndex = -1;
+            */
 
             //var ted = erp.tblCariler.Where(x => x.CariTipId==1 && x.CariTipId==2 && x.CariTipId==4).ToList();
-            
+
             //txtTFirmaId.DataSource = ted;
             //txtTFirmaId.ValueMember = "Id";
             //txtTFirmaId.DisplayMember = "CariTipId";
@@ -86,7 +97,7 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
         }
         private void YeniKayit()
         {
-            string ukodu = n.CariKoduUrun();
+            string ukodu = n.UrunGenelKodu();
             try
             {
                 if (txtUrunAdi.Text == "")
@@ -174,7 +185,6 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
         }
         private void Guncelle()
         {
-
             try
             {
                 if (secimId < 0)

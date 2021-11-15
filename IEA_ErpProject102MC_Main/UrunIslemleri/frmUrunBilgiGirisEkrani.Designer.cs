@@ -56,11 +56,6 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
             this.txtUretimT = new System.Windows.Forms.DateTimePicker();
             this.pnlUst = new System.Windows.Forms.Panel();
             this.lblUrunKodu = new System.Windows.Forms.Label();
-            this.btnCikis = new System.Windows.Forms.Button();
-            this.btnTemizle = new System.Windows.Forms.Button();
-            this.btnSil = new System.Windows.Forms.Button();
-            this.btnGuncelle = new System.Windows.Forms.Button();
-            this.btnKayit = new System.Windows.Forms.Button();
             this.Liste = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sira = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,6 +67,11 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
             this.CariYetkili = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlAlt = new System.Windows.Forms.Panel();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.btnCikis = new System.Windows.Forms.Button();
+            this.btnTemizle = new System.Windows.Forms.Button();
+            this.btnSil = new System.Windows.Forms.Button();
+            this.btnGuncelle = new System.Windows.Forms.Button();
+            this.btnKayit = new System.Windows.Forms.Button();
             this.pnlOrta.SuspendLayout();
             this.pnlUst.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).BeginInit();
@@ -87,7 +87,7 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(747, 40);
+            this.label10.Location = new System.Drawing.Point(747, 44);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(133, 28);
@@ -97,7 +97,7 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
             // 
             // txtFiyat
             // 
-            this.txtFiyat.Location = new System.Drawing.Point(666, 45);
+            this.txtFiyat.Location = new System.Drawing.Point(666, 49);
             this.txtFiyat.Margin = new System.Windows.Forms.Padding(4);
             this.txtFiyat.Name = "txtFiyat";
             this.txtFiyat.Size = new System.Drawing.Size(125, 22);
@@ -144,7 +144,7 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(518, 42);
+            this.label5.Location = new System.Drawing.Point(518, 46);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(140, 28);
@@ -174,7 +174,7 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(509, 115);
+            this.label7.Location = new System.Drawing.Point(509, 119);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(157, 28);
@@ -193,7 +193,7 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(526, 149);
+            this.label4.Location = new System.Drawing.Point(526, 153);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(133, 28);
@@ -213,7 +213,7 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(526, 80);
+            this.label8.Location = new System.Drawing.Point(526, 84);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(133, 28);
@@ -242,7 +242,7 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
             // txtParaB
             // 
             this.txtParaB.FormattingEnabled = true;
-            this.txtParaB.Location = new System.Drawing.Point(879, 43);
+            this.txtParaB.Location = new System.Drawing.Point(879, 47);
             this.txtParaB.Margin = new System.Windows.Forms.Padding(4);
             this.txtParaB.Name = "txtParaB";
             this.txtParaB.Size = new System.Drawing.Size(144, 24);
@@ -283,9 +283,9 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
             // 
             // btnSure
             // 
-            this.btnSure.Location = new System.Drawing.Point(924, 152);
+            this.btnSure.Location = new System.Drawing.Point(924, 153);
             this.btnSure.Name = "btnSure";
-            this.btnSure.Size = new System.Drawing.Size(169, 23);
+            this.btnSure.Size = new System.Drawing.Size(209, 28);
             this.btnSure.TabIndex = 29;
             this.btnSure.Text = "Son Kullanma Tarihi Hesapla";
             this.btnSure.UseVisualStyleBackColor = true;
@@ -295,7 +295,7 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
             // txtKulTarih
             // 
             this.txtKulTarih.FormattingEnabled = true;
-            this.txtKulTarih.Location = new System.Drawing.Point(797, 152);
+            this.txtKulTarih.Location = new System.Drawing.Point(797, 156);
             this.txtKulTarih.Name = "txtKulTarih";
             this.txtKulTarih.Size = new System.Drawing.Size(121, 24);
             this.txtKulTarih.TabIndex = 28;
@@ -303,7 +303,7 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
             // 
             // txtKSure
             // 
-            this.txtKSure.Location = new System.Drawing.Point(666, 153);
+            this.txtKSure.Location = new System.Drawing.Point(666, 157);
             this.txtKSure.Name = "txtKSure";
             this.txtKSure.Size = new System.Drawing.Size(125, 22);
             this.txtKSure.TabIndex = 27;
@@ -312,7 +312,7 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
             // txtDurum
             // 
             this.txtDurum.AutoSize = true;
-            this.txtDurum.Location = new System.Drawing.Point(924, 117);
+            this.txtDurum.Location = new System.Drawing.Point(924, 121);
             this.txtDurum.Name = "txtDurum";
             this.txtDurum.Size = new System.Drawing.Size(243, 21);
             this.txtDurum.TabIndex = 26;
@@ -322,14 +322,14 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
             // 
             // txtSkt
             // 
-            this.txtSkt.Location = new System.Drawing.Point(666, 116);
+            this.txtSkt.Location = new System.Drawing.Point(666, 120);
             this.txtSkt.Name = "txtSkt";
             this.txtSkt.Size = new System.Drawing.Size(252, 22);
             this.txtSkt.TabIndex = 25;
             // 
             // txtUretimT
             // 
-            this.txtUretimT.Location = new System.Drawing.Point(666, 85);
+            this.txtUretimT.Location = new System.Drawing.Point(666, 89);
             this.txtUretimT.Name = "txtUretimT";
             this.txtUretimT.Size = new System.Drawing.Size(252, 22);
             this.txtUretimT.TabIndex = 24;
@@ -360,67 +360,6 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
             this.lblUrunKodu.TabIndex = 4;
             this.lblUrunKodu.Text = "***";
             this.lblUrunKodu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnCikis
-            // 
-            this.btnCikis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCikis.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.exit_64;
-            this.btnCikis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCikis.Location = new System.Drawing.Point(1296, 10);
-            this.btnCikis.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCikis.Name = "btnCikis";
-            this.btnCikis.Size = new System.Drawing.Size(60, 49);
-            this.btnCikis.TabIndex = 3;
-            this.btnCikis.UseVisualStyleBackColor = true;
-            this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
-            // 
-            // btnTemizle
-            // 
-            this.btnTemizle.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.Sil32x32;
-            this.btnTemizle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTemizle.Location = new System.Drawing.Point(204, 16);
-            this.btnTemizle.Margin = new System.Windows.Forms.Padding(4);
-            this.btnTemizle.Name = "btnTemizle";
-            this.btnTemizle.Size = new System.Drawing.Size(53, 48);
-            this.btnTemizle.TabIndex = 2;
-            this.btnTemizle.UseVisualStyleBackColor = true;
-            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
-            // 
-            // btnSil
-            // 
-            this.btnSil.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.cop24x24;
-            this.btnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSil.Location = new System.Drawing.Point(143, 15);
-            this.btnSil.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(53, 49);
-            this.btnSil.TabIndex = 2;
-            this.btnSil.UseVisualStyleBackColor = true;
-            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
-            // 
-            // btnGuncelle
-            // 
-            this.btnGuncelle.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.Update32x32;
-            this.btnGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGuncelle.Location = new System.Drawing.Point(81, 15);
-            this.btnGuncelle.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(53, 49);
-            this.btnGuncelle.TabIndex = 1;
-            this.btnGuncelle.UseVisualStyleBackColor = true;
-            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
-            // 
-            // btnKayit
-            // 
-            this.btnKayit.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.Save_icon64x64;
-            this.btnKayit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnKayit.Location = new System.Drawing.Point(20, 15);
-            this.btnKayit.Margin = new System.Windows.Forms.Padding(4);
-            this.btnKayit.Name = "btnKayit";
-            this.btnKayit.Size = new System.Drawing.Size(53, 49);
-            this.btnKayit.TabIndex = 0;
-            this.btnKayit.UseVisualStyleBackColor = true;
-            this.btnKayit.Click += new System.EventHandler(this.btnKayit_Click);
             // 
             // Liste
             // 
@@ -523,6 +462,67 @@ namespace IEA_ErpProject102MC_Main.UrunIslemleri
             this.splitter1.Size = new System.Drawing.Size(1371, 14);
             this.splitter1.TabIndex = 8;
             this.splitter1.TabStop = false;
+            // 
+            // btnCikis
+            // 
+            this.btnCikis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCikis.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.exit_64;
+            this.btnCikis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCikis.Location = new System.Drawing.Point(1296, 10);
+            this.btnCikis.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCikis.Name = "btnCikis";
+            this.btnCikis.Size = new System.Drawing.Size(60, 49);
+            this.btnCikis.TabIndex = 3;
+            this.btnCikis.UseVisualStyleBackColor = true;
+            this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
+            // 
+            // btnTemizle
+            // 
+            this.btnTemizle.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.Sil32x32;
+            this.btnTemizle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTemizle.Location = new System.Drawing.Point(204, 16);
+            this.btnTemizle.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTemizle.Name = "btnTemizle";
+            this.btnTemizle.Size = new System.Drawing.Size(53, 48);
+            this.btnTemizle.TabIndex = 2;
+            this.btnTemizle.UseVisualStyleBackColor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
+            // 
+            // btnSil
+            // 
+            this.btnSil.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.cop24x24;
+            this.btnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSil.Location = new System.Drawing.Point(143, 15);
+            this.btnSil.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSil.Name = "btnSil";
+            this.btnSil.Size = new System.Drawing.Size(53, 49);
+            this.btnSil.TabIndex = 2;
+            this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
+            // 
+            // btnGuncelle
+            // 
+            this.btnGuncelle.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.Update32x32;
+            this.btnGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnGuncelle.Location = new System.Drawing.Point(81, 15);
+            this.btnGuncelle.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGuncelle.Name = "btnGuncelle";
+            this.btnGuncelle.Size = new System.Drawing.Size(53, 49);
+            this.btnGuncelle.TabIndex = 1;
+            this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
+            // 
+            // btnKayit
+            // 
+            this.btnKayit.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.Save_icon64x64;
+            this.btnKayit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnKayit.Location = new System.Drawing.Point(20, 15);
+            this.btnKayit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnKayit.Name = "btnKayit";
+            this.btnKayit.Size = new System.Drawing.Size(53, 49);
+            this.btnKayit.TabIndex = 0;
+            this.btnKayit.UseVisualStyleBackColor = true;
+            this.btnKayit.Click += new System.EventHandler(this.btnKayit_Click);
             // 
             // frmUrunBilgiGirisEkrani
             // 

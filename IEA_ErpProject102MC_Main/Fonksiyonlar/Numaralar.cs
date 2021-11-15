@@ -67,7 +67,7 @@ namespace IEA_ErpProject102MC_Main.Fonksiyonlar
                 return "F00000001";
             }
         }
-        public string CariKoduUrun()
+        public string UrunGenelKodu()
         {
             try
             {
