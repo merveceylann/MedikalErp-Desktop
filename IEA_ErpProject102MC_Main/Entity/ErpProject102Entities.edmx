@@ -78,6 +78,23 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="sehir" Type="nvarchar" MaxLength="255" />
         </EntityType>
+        <EntityType Name="tblUrunler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunKodu" Type="nvarchar" MaxLength="10" />
+          <Property Name="UrunAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="UrunAciklama" Type="nvarchar" MaxLength="50" />
+          <Property Name="KutuIcerik" Type="nvarchar(max)" />
+          <Property Name="TedarikciFirmaId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Barkod" Type="nvarchar" MaxLength="10" />
+          <Property Name="Fiyat" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParaBirimi" Type="nvarchar" MaxLength="50" />
+          <Property Name="UretimTarihi" Type="datetime" />
+          <Property Name="SonKullanmaT" Type="datetime" />
+          <Property Name="isActive" Type="bit" />
+        </EntityType>
         <Association Name="FK_tblCariler_tblCariGruplari">
           <End Role="tblCariGruplari" Type="Self.tblCariGruplari" Multiplicity="0..1" />
           <End Role="tblCariler" Type="Self.tblCariler" Multiplicity="*" />
@@ -132,6 +149,7 @@
           <EntitySet Name="tblDepartmanlar" EntityType="Self.tblDepartmanlar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPersonelDetay" EntityType="Self.tblPersonelDetay" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSehirler" EntityType="Self.tblSehirler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUrunler" EntityType="Self.tblUrunler" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_tblCariler_tblCariGruplari" Association="Self.FK_tblCariler_tblCariGruplari">
             <End Role="tblCariGruplari" EntitySet="tblCariGruplari" />
             <End Role="tblCariler" EntitySet="tblCariler" />
@@ -235,6 +253,23 @@
           <Property Name="sehir" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tblCariler" Relationship="Self.FK_tblCariler_tblSehirler" FromRole="tblSehirler" ToRole="tblCariler" />
         </EntityType>
+        <EntityType Name="tblUrunler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunKodu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UrunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunAciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KutuIcerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TedarikciFirmaId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Barkod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Fiyat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParaBirimi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UretimTarihi" Type="DateTime" Precision="3" />
+          <Property Name="SonKullanmaT" Type="DateTime" Precision="3" />
+          <Property Name="isActive" Type="Boolean" />
+        </EntityType>
         <Association Name="FK_tblCariler_tblCariGruplari">
           <End Role="tblCariGruplari" Type="Self.tblCariGruplari" Multiplicity="0..1" />
           <End Role="tblCariler" Type="Self.tblCariler" Multiplicity="*" />
@@ -289,6 +324,7 @@
           <EntitySet Name="tblDepartmanlar" EntityType="Self.tblDepartmanlar" />
           <EntitySet Name="tblPersonelDetay" EntityType="Self.tblPersonelDetay" />
           <EntitySet Name="tblSehirler" EntityType="Self.tblSehirler" />
+          <EntitySet Name="tblUrunler" EntityType="Self.tblUrunler" />
           <AssociationSet Name="FK_tblCariler_tblCariGruplari" Association="Self.FK_tblCariler_tblCariGruplari">
             <End Role="tblCariGruplari" EntitySet="tblCariGruplari" />
             <End Role="tblCariler" EntitySet="tblCariler" />
@@ -387,6 +423,24 @@
               <MappingFragment StoreEntitySet="tblSehirler">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="sehir" ColumnName="sehir" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUrunler">
+            <EntityTypeMapping TypeName="ErpProject102Model.tblUrunler">
+              <MappingFragment StoreEntitySet="tblUrunler">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+                <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+                <ScalarProperty Name="UrunAciklama" ColumnName="UrunAciklama" />
+                <ScalarProperty Name="KutuIcerik" ColumnName="KutuIcerik" />
+                <ScalarProperty Name="TedarikciFirmaId" ColumnName="TedarikciFirmaId" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="ParaBirimi" ColumnName="ParaBirimi" />
+                <ScalarProperty Name="UretimTarihi" ColumnName="UretimTarihi" />
+                <ScalarProperty Name="SonKullanmaT" ColumnName="SonKullanmaT" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

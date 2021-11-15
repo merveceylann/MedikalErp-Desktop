@@ -4,12 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d644bbb6366f4b16832fa7a13776b0d8" Name="Diagram1">
+      <Diagram DiagramId="225c361f68ba4448b4c0387fa160c12c" Name="Diagram1">
         <EntityTypeShape EntityType="ErpProject102Model.tblCariGruplari" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ErpProject102Model.tblCariler" Width="1.5" PointX="6" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ErpProject102Model.tblDepartmanlar" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ErpProject102Model.tblPersonelDetay" Width="1.5" PointX="8.25" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ErpProject102Model.tblSehirler" Width="1.5" PointX="3.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErpProject102Model.tblUrunler" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="ErpProject102Model.FK_tblCariler_tblCariGruplari" ManuallyRouted="false" />
         <AssociationConnector Association="ErpProject102Model.FK_tblDepartmanlar_tblCariGruplari" ManuallyRouted="false" />
         <AssociationConnector Association="ErpProject102Model.FK_tblCariler_tblSehirler" ManuallyRouted="false" />

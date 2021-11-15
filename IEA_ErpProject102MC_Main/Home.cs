@@ -2,6 +2,7 @@
 using IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Firmalar;
 using IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler;
 using IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller;
+using IEA_ErpProject102MC_Main.UrunIslemleri;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,19 +48,18 @@ namespace IEA_ErpProject102MC_Main
             tvBilgiGirisIslemleri.Nodes[3].Nodes.Add("Personeller Listesi"); //child
 
             #endregion
-        }
 
-        private void btnBilgiGiris_Click(object sender, EventArgs e)
-        {
-            lblMenuText.Text = btnBilgiGiris.Text;
-            TvGorunum();
-            tvBilgiGirisIslemleri.Visible = true;
+            #region Urun Islemleri
+            tvUrunIslemleri.Nodes.Add("Urunler");
+            tvUrunIslemleri.Nodes[0].Nodes.Add("Urun Bilgi Giris Ekrani");
+            tvUrunIslemleri.Nodes[0].Nodes.Add("Urunler Listesi");
+            #endregion
         }
 
         private void TvGorunum()
         {
             tvBilgiGirisIslemleri.Visible = false;
-            tv2.Visible = false;
+            tvUrunIslemleri.Visible = false;
             tv3.Visible = false;
             tv4.Visible = false;
             tv5.Visible = false;
@@ -70,6 +70,13 @@ namespace IEA_ErpProject102MC_Main
             tv10.Visible = false;
             tv11.Visible = false;
             tv12.Visible = false;
+        }
+
+        private void btnBilgiGiris_Click(object sender, EventArgs e)
+        {
+            lblMenuText.Text = btnBilgiGiris.Text;
+            TvGorunum();
+            tvBilgiGirisIslemleri.Visible = true;
         }
 
         private void tvBilgiGirisIslemleri_DoubleClick(object sender, EventArgs e)
@@ -90,7 +97,7 @@ namespace IEA_ErpProject102MC_Main
                 frm.Show();
             }
 
-            if (isim == "Doktor Bilgi Giris Ekrani" && Application.OpenForms["frmDoktorGirisEkrani"] as frmDoktorGirisEkrani is null) //
+            else if (isim == "Doktor Bilgi Giris Ekrani" && Application.OpenForms["frmDoktorGirisEkrani"] as frmDoktorGirisEkrani is null) //
             {
                 frmDoktorGirisEkrani frm = new frmDoktorGirisEkrani();
                 frm.MdiParent = Form.ActiveForm;
@@ -102,7 +109,7 @@ namespace IEA_ErpProject102MC_Main
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
             }
-            if (isim == "Personel Bilgi Giris Ekrani" && Application.OpenForms["frmPersonelGirisEkrani"] as frmPersonelGirisEkrani is null) //
+             else if (isim == "Personel Bilgi Giris Ekrani" && Application.OpenForms["frmPersonelGirisEkrani"] as frmPersonelGirisEkrani is null) //
             {
                 frmPersonelGirisEkrani frm = new frmPersonelGirisEkrani();
                 frm.MdiParent = Form.ActiveForm;
@@ -115,7 +122,7 @@ namespace IEA_ErpProject102MC_Main
                 frm.Show();
             }
 
-            if (isim == "Firma Bilgi Giris Ekrani" && Application.OpenForms["frmPersonelGirisEkrani"] as frmFirmaGirisEkrani is null) //
+             else if (isim == "Firma Bilgi Giris Ekrani" && Application.OpenForms["frmPersonelGirisEkrani"] as frmFirmaGirisEkrani is null) //
             {
                 frmFirmaGirisEkrani frm = new frmFirmaGirisEkrani();
                 frm.MdiParent = Form.ActiveForm;
@@ -124,6 +131,35 @@ namespace IEA_ErpProject102MC_Main
             else if (isim == "Firmalar Listesi" && Application.OpenForms["frmPersonellerListesi"] as frmFirmalarListesi is null) //
             {
                 frmFirmalarListesi frm = new frmFirmalarListesi();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+        }
+
+        private void btnUrunGiris_Click(object sender, EventArgs e)
+        {
+            lblMenuText.Text = btnBilgiGiris.Text;
+            TvGorunum();
+            tvUrunIslemleri.Visible = true;
+        }
+
+        private void tvUrunIslemleri_DoubleClick(object sender, EventArgs e)
+        {
+            string isim = "";
+            if (tvUrunIslemleri.SelectedNode != null)
+            {
+                isim = tvUrunIslemleri.SelectedNode.Text;
+            }
+
+            if (isim == "Urun Bilgi Giris Ekrani" && Application.OpenForms["frmUrunBilgiGirisEkrani"] == null)
+            {
+                frmUrunBilgiGirisEkrani frm = new frmUrunBilgiGirisEkrani();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Urunler Listesi" && Application.OpenForms["frmUrunlerListesi"] == null)
+            {
+                frmUrunlerListesi frm = new frmUrunlerListesi();
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
             }

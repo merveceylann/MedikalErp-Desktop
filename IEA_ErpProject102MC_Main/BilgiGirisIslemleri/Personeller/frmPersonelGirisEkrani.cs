@@ -35,18 +35,19 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller
         {
             Liste.Rows.Clear();
             int i = 0, sira = 1;
-            var lst = (from s in erp.tblCariler
-                       where s.isActive == true && s.CariGrupId == 4
+            var lst = (from s in erp.tblPersonelDetay
+                       where s.tblCariler.isActive == true 
+                       where s.tblCariler.CariGrupId == 4
                        select new
                        {
                            id = s.Id,
-                           pkodu = s.CariKodu,
-                           padi = s.CariAdi,
-                           ptel = s.CariTel,
-                           pgsm = s.YetkiliCep1,
-                           pmail = s.CariMail,
-                           pbaslama=s.IseBaslamaT,
-                           pbitis=s.IstenAyrilmaT
+                           pkodu = s.tblCariler.CariKodu,
+                           padi = s.tblCariler.CariAdi,
+                           ptel = s.tblCariler.CariTel,
+                           pgsm = s.tblCariler.YetkiliCep1,
+                           pmail = s.tblCariler.CariMail,
+                           pbaslama=s.IsBasiTarih,
+                           pbitis=s.IsBitisTarih
                        }).ToList();
             foreach (var k in lst)
             {
@@ -116,8 +117,6 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller
                     hst.CariGrupId = 4;
                     hst.CariTipId = 1;
                     hst.CariUnvan = txtPUnvan.Text;
-                    hst.IseBaslamaT = txtPBaslama.Value;
-                    hst.IstenAyrilmaT = txtPBitis.Value;
                     //hst.SehirId = (int?)txtSehir.SelectedValue ?? null;
                     if (txtSehir.SelectedValue != null)
                     {
@@ -129,20 +128,28 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller
 
                     erp.tblCariler.Add(hst);
                     erp.SaveChanges();
-                    MessageBox.Show("Kayit Basarili");
+
+                    tblPersonelDetay pdet = new tblPersonelDetay();
+                    pdet.IsBasiTarih = txtPBaslama.Value;
+                    pdet.CariId = erp.tblCariler.First(x=> x.CariAdi==txtPAdi.Text).Id;
+
+                    erp.tblPersonelDetay.Add(pdet);
+                    erp.SaveChanges();
+
+                    MessageBox.Show(@"Kayit Basarili");
 
                     Temizle();
                     Listele();
                 }
                 else
                 {
-                    MessageBox.Show("Bu kayit alinmistir!!!");
+                    MessageBox.Show(@"Bu kayit alinmistir!!!");
                 }
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                MessageBox.Show("Hatali Giris");
+                MessageBox.Show(e.Message);
             }
         }
 
@@ -159,6 +166,10 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller
             txtSehir.SelectedIndex = -1;
             txtPUnvan.SelectedIndex = -1;
             txtPDep.SelectedIndex = -1;
+
+            txtDurum.Visible = false;
+            txtDurum.Checked = false;
+            txtPBitis.Visible = false;
         }
 
         private void btnTemizle_Click(object sender, EventArgs e)
@@ -179,20 +190,26 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller
                 {
                     return;
                 }
-                tblCariler hst = erp.tblCariler.Find(secimId);
-                hst.CariAdi = txtPAdi.Text;
-                hst.CariMail = txtPMail.Text;
-                hst.CariTel = txtPTel.Text;
-                hst.YetkiliDep1 = txtPDep.Text;
-                hst.YetkiliCep1 = txtPGsm.Text;
-                hst.Adres1 = txtPAdres.Text;
-                hst.CariUnvan = txtPUnvan.Text;
-                hst.IseBaslamaT = txtPBaslama.Value;
-                hst.IstenAyrilmaT = txtPBitis.Value;
-                hst.SehirId = (int?)txtSehir.SelectedValue ?? null;
-                hst.UpdateDate = DateTime.Now;
-                hst.UpdateUserId = 1; //hangi kullanıcı hangi kaydi ne zaman degistirir onu kaydetmek adina (tedbir)
-                hst.CariKodu = lblPersonelKodu.Text;
+                tblPersonelDetay hst = erp.tblPersonelDetay.Find(secimId);
+                hst.tblCariler.CariAdi = txtPAdi.Text;
+                hst.tblCariler.CariMail = txtPMail.Text;
+                hst.tblCariler.CariTel = txtPTel.Text;
+                hst.tblCariler.YetkiliDep1 = txtPDep.Text;
+                hst.tblCariler.YetkiliCep1 = txtPGsm.Text;
+                hst.tblCariler.Adres1 = txtPAdres.Text;
+                hst.tblCariler.CariUnvan = txtPUnvan.Text;
+                hst.tblCariler.IseBaslamaT = txtPBaslama.Value;
+                if (txtDurum.Checked)
+                {
+                    hst.IsBitisTarih = txtPBitis.Value;
+                }
+                if (txtSehir.SelectedValue != null)
+                {
+                    hst.tblCariler.SehirId = (int)txtSehir.SelectedValue;
+                }
+                hst.tblCariler.UpdateDate = DateTime.Now;
+                hst.tblCariler.UpdateUserId = 1; //hangi kullanıcı hangi kaydi ne zaman degistirir onu kaydetmek adina (tedbir)
+                hst.tblCariler.CariKodu = lblPersonelKodu.Text;
 
                 erp.SaveChanges();
                 MessageBox.Show("Guncelleme Basarili");
@@ -209,29 +226,28 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller
 
         private void Liste_DoubleClick(object sender, EventArgs e)
         {
+            Temizle();
             secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
             Ac(secimId);
         }
         public void Ac(int i)
         {
+            txtDurum.Visible = true;
             secimId = i;
             try
             {
-                tblCariler hst = erp.tblCariler.Find(i);
+                tblPersonelDetay hst = erp.tblPersonelDetay.Find(i);
 
-                txtPAdi.Text = hst.CariAdi;
-                txtPMail.Text = hst.CariMail;
-                
-                txtPTel.Text = hst.CariTel;
-                txtPDep.Text = hst.YetkiliDep1;
-                txtPGsm.Text = hst.YetkiliCep1;
-                txtPAdres.Text = hst.Adres1;
-                txtPUnvan.Text = hst.CariUnvan;
-                txtPBaslama.Text = hst.IseBaslamaT.ToString();
-                txtPBitis.Text = hst.IstenAyrilmaT.ToString();
+                txtPAdi.Text = hst.tblCariler.CariAdi;
+                txtPMail.Text = hst.tblCariler.CariMail;
+                txtPTel.Text = hst.tblCariler.CariTel;
+                txtPDep.Text = hst.tblCariler.YetkiliDep1;
+                txtPGsm.Text = hst.tblCariler.YetkiliCep1;
+                txtPAdres.Text = hst.tblCariler.Adres1;
+                txtPUnvan.Text = hst.tblCariler.CariUnvan;
                 //txtSehir.Text = hst.tblSehirler.sehir;
-                txtSehir.Text = hst.tblSehirler == null ? "" : hst.tblSehirler.sehir;
-                lblPersonelKodu.Text = hst.CariKodu;
+                txtSehir.Text = hst.tblCariler.tblSehirler == null ? "" : hst.tblCariler.tblSehirler.sehir;
+                lblPersonelKodu.Text = hst.tblCariler.CariKodu;
             }
             catch (Exception e)
             {
@@ -248,10 +264,10 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller
         {
             if (secimId > 0)
             {
-                tblCariler hst = erp.tblCariler.Find(secimId);
-                hst.isActive = false;
+                tblPersonelDetay hst = erp.tblPersonelDetay.Find(secimId);
+                hst.tblCariler.isActive = false;
                 erp.SaveChanges();
-                MessageBox.Show("Silme Basarili");
+                MessageBox.Show(@"Silme Basarili");
                 Temizle();
                 Listele();
             }
@@ -284,5 +300,19 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller
             }
             SendToBack();
         }
+
+        private void txtDurum_CheckedChanged(object sender, EventArgs e)
+        {
+            if (txtDurum.Checked)
+            {
+                txtPBitis.Visible = true;
+            }
+            else
+            {
+                txtPBitis.Visible = false;
+            }
+        }
+
+        
     }
 }

@@ -133,9 +133,13 @@
     <Compile Include="Entity\tblSehirler.cs">
       <DependentUpon>ErpProject102Entities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\tblUrunler.cs">
+      <DependentUpon>ErpProject102Entities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Fonksiyonlar\enumDoktorUnvanlar.cs" />
     <Compile Include="Fonksiyonlar\enumFirmaTipi.cs" />
     <Compile Include="Fonksiyonlar\enumPersonelUnvanlar.cs" />
+    <Compile Include="Fonksiyonlar\enumParaBirimi.cs" />
     <Compile Include="Fonksiyonlar\Numaralar.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -145,6 +149,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UrunIslemleri\frmUrunBilgiGirisEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UrunIslemleri\frmUrunBilgiGirisEkrani.Designer.cs">
+      <DependentUpon>frmUrunBilgiGirisEkrani.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UrunIslemleri\frmUrunlerListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UrunIslemleri\frmUrunlerListesi.Designer.cs">
+      <DependentUpon>frmUrunlerListesi.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BilgiGirisIslemleri\Doktorlar\frmDoktorGirisEkrani.resx">
       <DependentUpon>frmDoktorGirisEkrani.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +198,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UrunIslemleri\frmUrunBilgiGirisEkrani.resx">
+      <DependentUpon>frmUrunBilgiGirisEkrani.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Entity\ErpProject102Entities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ErpProject102Entities.Designer.cs</LastGenOutput>

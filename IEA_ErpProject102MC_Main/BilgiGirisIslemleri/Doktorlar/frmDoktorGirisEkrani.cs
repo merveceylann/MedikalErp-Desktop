@@ -1,5 +1,6 @@
 ﻿using IEA_ErpProject102MC_Main.Entity;
 using IEA_ErpProject102MC_Main.Fonksiyonlar;
+using IEA_ErpProject102MC_Main.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -251,12 +252,27 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
                 Listele();
             }
         }
+        protected override void OnLoad(EventArgs e)
+        {
+            var btn = new Button();
+            btn.Size = new Size(25, txtDKoduBul.ClientSize.Height + 0);
+            btn.Location = new Point(txtDKoduBul.ClientSize.Width - btn.Width - 1);
+            btn.Cursor = Cursors.Default;
+            btn.Image = Resources.arrow_1176;
+            txtDKoduBul.Controls.Add(btn);
+
+            base.OnLoad(e);
+            btn.Click += btn_Click;
+        }
+        private void btn_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmDoktorlarListesi"] == null)
+            {
+                frmDoktorlarListesi frm = new frmDoktorlarListesi();
+                frm.MdiParent = Home.ActiveForm;
+                frm.Show();
+            }
+            SendToBack();
+        }
     }
 }
-
-//SKTsi olmayan urunlerin de 1 senelik surelerini yapcaz.
-//homeda buton2 ye ve tv2 ye menu olustur.
-//tv2= tvUrunIslemleri
-//btnUrunGiris
-//abstrack concret
-//generic ler
