@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ErpProject102Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ErpProject102Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblCariGruplari">
           <Key>
             <PropertyRef Name="Id" />
@@ -78,6 +78,55 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="sehir" Type="nvarchar" MaxLength="255" />
         </EntityType>
+        <EntityType Name="tblStokDurum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StokKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="Barkod" Type="nvarchar" MaxLength="50" />
+          <Property Name="Urun" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lot" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokAdet" Type="int" />
+          <Property Name="RafAdet" Type="int" />
+          <Property Name="SubeAdet" Type="int" />
+          <Property Name="KonsinyeAdet" Type="int" />
+          <Property Name="UT" Type="datetime" />
+          <Property Name="SKT" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblStokGirisAlt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GenelNo" Type="int" />
+          <Property Name="SiraNo" Type="int" />
+          <Property Name="Barkod" Type="nvarchar" MaxLength="50" />
+          <Property Name="UrunKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="LotSeriNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adet" Type="int" />
+          <Property Name="Not" Type="nvarchar(max)" />
+          <Property Name="UT" Type="datetime" />
+          <Property Name="SKT" Type="datetime" />
+          <Property Name="AlisFiyat" Type="decimal" Precision="11" Scale="2" />
+        </EntityType>
+        <EntityType Name="tblStokGirisUst">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GenelNo" Type="int" />
+          <Property Name="CariGrupId" Type="int" />
+          <Property Name="CariAdiId" Type="int" />
+          <Property Name="GirisTipi" Type="int" />
+          <Property Name="FaturaNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Aciklama" Type="nvarchar(max)" />
+          <Property Name="SaveDate" Type="datetime" />
+          <Property Name="SaveUserId" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateUserId" Type="int" />
+          <Property Name="isActive" Type="bit" />
+        </EntityType>
         <EntityType Name="tblUrunler">
           <Key>
             <PropertyRef Name="Id" />
@@ -143,12 +192,39 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tblStokGirisUst_tblCariGruplari">
+          <End Role="tblCariGruplari" Type="Self.tblCariGruplari" Multiplicity="0..1" />
+          <End Role="tblStokGirisUst" Type="Self.tblStokGirisUst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCariGruplari">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblStokGirisUst">
+              <PropertyRef Name="CariGrupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStokGirisUst_tblCariler">
+          <End Role="tblCariler" Type="Self.tblCariler" Multiplicity="0..1" />
+          <End Role="tblStokGirisUst" Type="Self.tblStokGirisUst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCariler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblStokGirisUst">
+              <PropertyRef Name="CariAdiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ErpProject102ModelStoreContainer">
           <EntitySet Name="tblCariGruplari" EntityType="Self.tblCariGruplari" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblCariler" EntityType="Self.tblCariler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDepartmanlar" EntityType="Self.tblDepartmanlar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPersonelDetay" EntityType="Self.tblPersonelDetay" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblSehirler" EntityType="Self.tblSehirler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStokDurum" EntityType="Self.tblStokDurum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStokGirisAlt" EntityType="Self.tblStokGirisAlt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStokGirisUst" EntityType="Self.tblStokGirisUst" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUrunler" EntityType="Self.tblUrunler" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_tblCariler_tblCariGruplari" Association="Self.FK_tblCariler_tblCariGruplari">
             <End Role="tblCariGruplari" EntitySet="tblCariGruplari" />
@@ -166,9 +242,16 @@
             <End Role="tblCariler" EntitySet="tblCariler" />
             <End Role="tblPersonelDetay" EntitySet="tblPersonelDetay" />
           </AssociationSet>
+          <AssociationSet Name="FK_tblStokGirisUst_tblCariGruplari" Association="Self.FK_tblStokGirisUst_tblCariGruplari">
+            <End Role="tblCariGruplari" EntitySet="tblCariGruplari" />
+            <End Role="tblStokGirisUst" EntitySet="tblStokGirisUst" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStokGirisUst_tblCariler" Association="Self.FK_tblStokGirisUst_tblCariler">
+            <End Role="tblCariler" EntitySet="tblCariler" />
+            <End Role="tblStokGirisUst" EntitySet="tblStokGirisUst" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ErpProject102Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -181,6 +264,7 @@
           <Property Name="isActive" Type="Boolean" />
           <NavigationProperty Name="tblCariler" Relationship="Self.FK_tblCariler_tblCariGruplari" FromRole="tblCariGruplari" ToRole="tblCariler" />
           <NavigationProperty Name="tblDepartmanlar" Relationship="Self.FK_tblDepartmanlar_tblCariGruplari" FromRole="tblCariGruplari" ToRole="tblDepartmanlar" />
+          <NavigationProperty Name="tblStokGirisUst" Relationship="ErpProject102Model.FK_tblStokGirisUst_tblCariGruplari" FromRole="tblCariGruplari" ToRole="tblStokGirisUst" />
         </EntityType>
         <EntityType Name="tblCariler">
           <Key>
@@ -224,6 +308,7 @@
           <NavigationProperty Name="tblCariGruplari" Relationship="Self.FK_tblCariler_tblCariGruplari" FromRole="tblCariler" ToRole="tblCariGruplari" />
           <NavigationProperty Name="tblSehirler" Relationship="Self.FK_tblCariler_tblSehirler" FromRole="tblCariler" ToRole="tblSehirler" />
           <NavigationProperty Name="tblPersonelDetay" Relationship="Self.FK_tblPersonelDetay_tblCariler" FromRole="tblCariler" ToRole="tblPersonelDetay" />
+          <NavigationProperty Name="tblStokGirisUst" Relationship="ErpProject102Model.FK_tblStokGirisUst_tblCariler" FromRole="tblCariler" ToRole="tblStokGirisUst" />
         </EntityType>
         <EntityType Name="tblDepartmanlar">
           <Key>
@@ -341,7 +426,93 @@
             <End Role="tblCariler" EntitySet="tblCariler" />
             <End Role="tblPersonelDetay" EntitySet="tblPersonelDetay" />
           </AssociationSet>
+          <EntitySet Name="tblStokGirisAlt" EntityType="ErpProject102Model.tblStokGirisAlt" />
+          <EntitySet Name="tblStokGirisUst" EntityType="ErpProject102Model.tblStokGirisUst" />
+          <AssociationSet Name="FK_tblStokGirisUst_tblCariGruplari" Association="ErpProject102Model.FK_tblStokGirisUst_tblCariGruplari">
+            <End Role="tblCariGruplari" EntitySet="tblCariGruplari" />
+            <End Role="tblStokGirisUst" EntitySet="tblStokGirisUst" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblStokGirisUst_tblCariler" Association="ErpProject102Model.FK_tblStokGirisUst_tblCariler">
+            <End Role="tblCariler" EntitySet="tblCariler" />
+            <End Role="tblStokGirisUst" EntitySet="tblStokGirisUst" />
+          </AssociationSet>
+          <EntitySet Name="tblStokDurum" EntityType="ErpProject102Model.tblStokDurum" />
         </EntityContainer>
+        <EntityType Name="tblStokGirisAlt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GenelNo" Type="Int32" />
+          <Property Name="SiraNo" Type="Int32" />
+          <Property Name="Barkod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UrunKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LotSeriNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Adet" Type="Int32" />
+          <Property Name="Not" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UT" Type="DateTime" Precision="3" />
+          <Property Name="SKT" Type="DateTime" Precision="3" />
+          <Property Name="AlisFiyat" Type="Decimal" Precision="11" Scale="2" />
+        </EntityType>
+        <EntityType Name="tblStokGirisUst">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GenelNo" Type="Int32" />
+          <Property Name="CariGrupId" Type="Int32" />
+          <Property Name="CariAdiId" Type="Int32" />
+          <Property Name="GirisTipi" Type="Int32" />
+          <Property Name="FaturaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SaveDate" Type="DateTime" Precision="3" />
+          <Property Name="SaveUserId" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserId" Type="Int32" />
+          <Property Name="isActive" Type="Boolean" />
+          <NavigationProperty Name="tblCariGruplari" Relationship="ErpProject102Model.FK_tblStokGirisUst_tblCariGruplari" FromRole="tblStokGirisUst" ToRole="tblCariGruplari" />
+          <NavigationProperty Name="tblCariler" Relationship="ErpProject102Model.FK_tblStokGirisUst_tblCariler" FromRole="tblStokGirisUst" ToRole="tblCariler" />
+        </EntityType>
+        <Association Name="FK_tblStokGirisUst_tblCariGruplari">
+          <End Type="ErpProject102Model.tblCariGruplari" Role="tblCariGruplari" Multiplicity="0..1" />
+          <End Type="ErpProject102Model.tblStokGirisUst" Role="tblStokGirisUst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCariGruplari">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblStokGirisUst">
+              <PropertyRef Name="CariGrupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblStokGirisUst_tblCariler">
+          <End Type="ErpProject102Model.tblCariler" Role="tblCariler" Multiplicity="0..1" />
+          <End Type="ErpProject102Model.tblStokGirisUst" Role="tblStokGirisUst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCariler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblStokGirisUst">
+              <PropertyRef Name="CariAdiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblStokDurum">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StokKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Barkod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Urun" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokAdet" Type="Int32" />
+          <Property Name="RafAdet" Type="Int32" />
+          <Property Name="SubeAdet" Type="Int32" />
+          <Property Name="KonsinyeAdet" Type="Int32" />
+          <Property Name="UT" Type="DateTime" Precision="3" />
+          <Property Name="SKT" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -441,6 +612,58 @@
                 <ScalarProperty Name="UretimTarihi" ColumnName="UretimTarihi" />
                 <ScalarProperty Name="SonKullanmaT" ColumnName="SonKullanmaT" />
                 <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStokGirisAlt">
+            <EntityTypeMapping TypeName="ErpProject102Model.tblStokGirisAlt">
+              <MappingFragment StoreEntitySet="tblStokGirisAlt">
+                <ScalarProperty Name="AlisFiyat" ColumnName="AlisFiyat" />
+                <ScalarProperty Name="SKT" ColumnName="SKT" />
+                <ScalarProperty Name="UT" ColumnName="UT" />
+                <ScalarProperty Name="Not" ColumnName="Not" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="LotSeriNo" ColumnName="LotSeriNo" />
+                <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="SiraNo" ColumnName="SiraNo" />
+                <ScalarProperty Name="GenelNo" ColumnName="GenelNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStokGirisUst">
+            <EntityTypeMapping TypeName="ErpProject102Model.tblStokGirisUst">
+              <MappingFragment StoreEntitySet="tblStokGirisUst">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="UpdateUserId" ColumnName="UpdateUserId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="SaveUserId" ColumnName="SaveUserId" />
+                <ScalarProperty Name="SaveDate" ColumnName="SaveDate" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="FaturaNo" ColumnName="FaturaNo" />
+                <ScalarProperty Name="GirisTipi" ColumnName="GirisTipi" />
+                <ScalarProperty Name="CariAdiId" ColumnName="CariAdiId" />
+                <ScalarProperty Name="CariGrupId" ColumnName="CariGrupId" />
+                <ScalarProperty Name="GenelNo" ColumnName="GenelNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStokDurum">
+            <EntityTypeMapping TypeName="ErpProject102Model.tblStokDurum">
+              <MappingFragment StoreEntitySet="tblStokDurum">
+                <ScalarProperty Name="SKT" ColumnName="SKT" />
+                <ScalarProperty Name="UT" ColumnName="UT" />
+                <ScalarProperty Name="KonsinyeAdet" ColumnName="KonsinyeAdet" />
+                <ScalarProperty Name="SubeAdet" ColumnName="SubeAdet" />
+                <ScalarProperty Name="RafAdet" ColumnName="RafAdet" />
+                <ScalarProperty Name="StokAdet" ColumnName="StokAdet" />
+                <ScalarProperty Name="Lot" ColumnName="Lot" />
+                <ScalarProperty Name="Urun" ColumnName="Urun" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="StokKodu" ColumnName="StokKodu" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

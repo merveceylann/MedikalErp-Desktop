@@ -3,6 +3,7 @@ using IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Firmalar;
 using IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler;
 using IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller;
 using IEA_ErpProject102MC_Main.DepoIslemleri.StokIslemleri;
+using IEA_ErpProject102MC_Main.Fonksiyonlar;
 using IEA_ErpProject102MC_Main.UrunIslemleri;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,9 @@ namespace IEA_ErpProject102MC_Main
 {
     public partial class Home : Form
     {
+        public static int Aktarma = -1;
+        formlar f = new formlar();
+
         public Home()
         {
             InitializeComponent();
@@ -102,9 +106,11 @@ namespace IEA_ErpProject102MC_Main
             }
             else if (isim == "Hastaneler Listesi" && Application.OpenForms["Hastaneler Listesi"] as frmHastanelerListesi is null) //
             {
-                frmHastanelerListesi frm = new frmHastanelerListesi();
-                frm.MdiParent = Form.ActiveForm;
-                frm.Show();
+                //frmHastanelerListesi frm = new frmHastanelerListesi();
+                //frm.MdiParent = Form.ActiveForm;
+                //frm.Show();
+                //artik boyle ulasmıcaz.
+                f.HastaneListesi();
             }
 
             else if (isim == "Doktor Bilgi Giris Ekrani" && Application.OpenForms["frmDoktorGirisEkrani"] as frmDoktorGirisEkrani is null) //
@@ -115,11 +121,13 @@ namespace IEA_ErpProject102MC_Main
             }
             else if (isim == "Doktorlar Listesi" && Application.OpenForms["frmDoktorlarListesi"] as frmDoktorlarListesi is null) //
             {
-                frmDoktorlarListesi frm = new frmDoktorlarListesi();
-                frm.MdiParent = Form.ActiveForm;
-                frm.Show();
+                //frmDoktorlarListesi frm = new frmDoktorlarListesi();
+                //frm.MdiParent = Form.ActiveForm;
+                //frm.Show();
+                f.DoktorlarListesi();
+                
             }
-             else if (isim == "Personel Bilgi Giris Ekrani" && Application.OpenForms["frmPersonelGirisEkrani"] as frmPersonelGirisEkrani is null) //
+             else if (isim == "Personel Bilgi Giris Ekrani" && Application.OpenForms["frmPersonelGirisEkrani"] as frmPersonelGirisEkrani is null) 
             {
                 frmPersonelGirisEkrani frm = new frmPersonelGirisEkrani();
                 frm.MdiParent = Form.ActiveForm;
@@ -127,9 +135,10 @@ namespace IEA_ErpProject102MC_Main
             }
             else if (isim == "Personeller Listesi" && Application.OpenForms["frmPersonellerListesi"] as frmPersonellerListesi is null) //
             {
-                frmPersonellerListesi frm = new frmPersonellerListesi();
-                frm.MdiParent = Form.ActiveForm;
-                frm.Show();
+                //frmPersonellerListesi frm = new frmPersonellerListesi();
+                //frm.MdiParent = Form.ActiveForm;
+                //frm.Show();
+                f.PersonellerListesi();
             }
 
              else if (isim == "Firma Bilgi Giris Ekrani" && Application.OpenForms["frmPersonelGirisEkrani"] as frmFirmaGirisEkrani is null) //

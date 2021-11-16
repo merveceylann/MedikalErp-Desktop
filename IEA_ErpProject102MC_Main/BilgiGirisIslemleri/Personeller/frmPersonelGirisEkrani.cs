@@ -24,6 +24,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller
         private Numaralar n = new Numaralar();
 
         private int secimId = -1;
+        
 
         private void frmPersonelGirisEkrani_Load(object sender, EventArgs e)
         {

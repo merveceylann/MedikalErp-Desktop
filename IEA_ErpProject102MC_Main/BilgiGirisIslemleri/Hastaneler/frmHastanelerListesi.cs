@@ -24,6 +24,8 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
         private Numaralar n = new Numaralar();
         private int secimId = -1;
 
+        public bool Secim = false;
+
         //private frmHastaneGirisEkrani acik = (frmHastaneGirisEkrani)Application.OpenForms["frmHastaneGirisEkrani"];
 
         private void frmHastanelerListesi_Load(object sender, EventArgs e)
@@ -73,12 +75,13 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
         {
             secimId = (int?)Liste.CurrentRow.Cells[0].Value ?? -1;
 
-            if (secimId > 0 && Application.OpenForms["frmHastaneGirisEkrani"] == null)
+            if (secimId > 0 && Secim && Application.OpenForms["frmHastaneGirisEkrani"] == null)
             {
-                frmHastaneGirisEkrani frm = new frmHastaneGirisEkrani();
-                frm.MdiParent = Home.ActiveForm;
-                frm.Show();
-                frm.Ac(secimId);
+                //frmHastaneGirisEkrani frm = new frmHastaneGirisEkrani();
+                //frm.MdiParent = Home.ActiveForm;
+                //frm.Show();
+                //frm.Ac(secimId);
+                Home.Aktarma = secimId;
                 Close();
             }
             else if (Application.OpenForms["frmHastaneGirisEkrani"] != null)

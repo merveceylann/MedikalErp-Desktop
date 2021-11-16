@@ -11,8 +11,9 @@ namespace IEA_ErpProject102MC_Main.Dal
 {
     public class baglanti:Form
     {
-        protected ErpProject102Entities erp = new ErpProject102Entities();
-        internal Numaralar n = new Numaralar();
-        private int secimId = -1;
+        internal ErpProject102Entities erp = new ErpProject102Entities();
+        internal Numaralar _n = new Numaralar();
+        protected int secimId = -1;
+        public formlar f = new formlar();
     }
 }

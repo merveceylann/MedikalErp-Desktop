@@ -23,6 +23,8 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Firmalar
         private ErpProject102Entities erp = new ErpProject102Entities();
         private int secimId = -1;
 
+        public bool Secim = false;
+
         private void frmFirmalarListesi_Load(object sender, EventArgs e)
         {
             Listele();
@@ -67,10 +69,11 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Firmalar
 
             if (secimId > 0 && Application.OpenForms["frmFirmaGirisEkrani"] == null)
             {
-                frmFirmaGirisEkrani frm = new frmFirmaGirisEkrani();
-                frm.MdiParent = Home.ActiveForm;
-                frm.Show();
-                frm.Ac(secimId);
+                //frmFirmaGirisEkrani frm = new frmFirmaGirisEkrani();
+                //frm.MdiParent = Home.ActiveForm;
+                //frm.Show();
+                //frm.Ac(secimId);
+                Home.Aktarma = secimId;
                 Close();
             }
             else if (Application.OpenForms["frmFirmaGirisEkrani"] != null)

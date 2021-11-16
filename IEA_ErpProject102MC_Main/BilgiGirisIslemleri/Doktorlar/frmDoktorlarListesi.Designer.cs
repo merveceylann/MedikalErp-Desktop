@@ -58,17 +58,19 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
             this.pnlUst.Controls.Add(this.btnKayit);
             this.pnlUst.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlUst.Location = new System.Drawing.Point(0, 0);
+            this.pnlUst.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlUst.Name = "pnlUst";
-            this.pnlUst.Size = new System.Drawing.Size(1028, 58);
+            this.pnlUst.Size = new System.Drawing.Size(1371, 71);
             this.pnlUst.TabIndex = 5;
             // 
             // lblHastaneKodu
             // 
             this.lblHastaneKodu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblHastaneKodu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblHastaneKodu.Location = new System.Drawing.Point(467, 19);
+            this.lblHastaneKodu.Location = new System.Drawing.Point(623, 23);
+            this.lblHastaneKodu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHastaneKodu.Name = "lblHastaneKodu";
-            this.lblHastaneKodu.Size = new System.Drawing.Size(100, 23);
+            this.lblHastaneKodu.Size = new System.Drawing.Size(133, 28);
             this.lblHastaneKodu.TabIndex = 4;
             this.lblHastaneKodu.Text = "***";
             this.lblHastaneKodu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -78,9 +80,10 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
             this.btnCikis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCikis.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.exit_64;
             this.btnCikis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCikis.Location = new System.Drawing.Point(972, 8);
+            this.btnCikis.Location = new System.Drawing.Point(1296, 10);
+            this.btnCikis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCikis.Name = "btnCikis";
-            this.btnCikis.Size = new System.Drawing.Size(45, 40);
+            this.btnCikis.Size = new System.Drawing.Size(60, 49);
             this.btnCikis.TabIndex = 3;
             this.btnCikis.UseVisualStyleBackColor = true;
             // 
@@ -88,9 +91,10 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
             // 
             this.btnTemizle.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.Sil32x32;
             this.btnTemizle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTemizle.Location = new System.Drawing.Point(153, 13);
+            this.btnTemizle.Location = new System.Drawing.Point(204, 16);
+            this.btnTemizle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnTemizle.Name = "btnTemizle";
-            this.btnTemizle.Size = new System.Drawing.Size(40, 39);
+            this.btnTemizle.Size = new System.Drawing.Size(53, 48);
             this.btnTemizle.TabIndex = 2;
             this.btnTemizle.UseVisualStyleBackColor = true;
             // 
@@ -98,9 +102,10 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
             // 
             this.btnSil.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.cop24x24;
             this.btnSil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSil.Location = new System.Drawing.Point(107, 12);
+            this.btnSil.Location = new System.Drawing.Point(143, 15);
+            this.btnSil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(40, 40);
+            this.btnSil.Size = new System.Drawing.Size(53, 49);
             this.btnSil.TabIndex = 2;
             this.btnSil.UseVisualStyleBackColor = true;
             // 
@@ -108,9 +113,10 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
             // 
             this.btnGuncelle.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.Update32x32;
             this.btnGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGuncelle.Location = new System.Drawing.Point(61, 12);
+            this.btnGuncelle.Location = new System.Drawing.Point(81, 15);
+            this.btnGuncelle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(40, 40);
+            this.btnGuncelle.Size = new System.Drawing.Size(53, 49);
             this.btnGuncelle.TabIndex = 1;
             this.btnGuncelle.UseVisualStyleBackColor = true;
             // 
@@ -118,9 +124,10 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
             // 
             this.btnKayit.BackgroundImage = global::IEA_ErpProject102MC_Main.Properties.Resources.Save_icon64x64;
             this.btnKayit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnKayit.Location = new System.Drawing.Point(15, 12);
+            this.btnKayit.Location = new System.Drawing.Point(20, 15);
+            this.btnKayit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnKayit.Name = "btnKayit";
-            this.btnKayit.Size = new System.Drawing.Size(40, 40);
+            this.btnKayit.Size = new System.Drawing.Size(53, 49);
             this.btnKayit.TabIndex = 0;
             this.btnKayit.UseVisualStyleBackColor = true;
             // 
@@ -136,10 +143,11 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
             this.DoktorGsm,
             this.CariMail});
             this.Liste.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Liste.Location = new System.Drawing.Point(0, 58);
+            this.Liste.Location = new System.Drawing.Point(0, 71);
+            this.Liste.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Liste.Name = "Liste";
             this.Liste.RowHeadersWidth = 51;
-            this.Liste.Size = new System.Drawing.Size(1028, 386);
+            this.Liste.Size = new System.Drawing.Size(1371, 475);
             this.Liste.TabIndex = 8;
             this.Liste.DoubleClick += new System.EventHandler(this.Liste_DoubleClick);
             // 
@@ -157,7 +165,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
             this.Sira.HeaderText = "Sira";
             this.Sira.MinimumWidth = 6;
             this.Sira.Name = "Sira";
-            this.Sira.Width = 50;
+            this.Sira.Width = 62;
             // 
             // CariKodu
             // 
@@ -165,7 +173,7 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
             this.CariKodu.HeaderText = "Doktor Kodu";
             this.CariKodu.MinimumWidth = 6;
             this.CariKodu.Name = "CariKodu";
-            this.CariKodu.Width = 85;
+            this.CariKodu.Width = 107;
             // 
             // CariAdi
             // 
@@ -180,13 +188,15 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
             this.CariTel.HeaderText = "Doktor Telefonu";
             this.CariTel.MinimumWidth = 6;
             this.CariTel.Name = "CariTel";
+            this.CariTel.Width = 127;
             // 
             // DoktorGsm
             // 
             this.DoktorGsm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.DoktorGsm.HeaderText = "Doktor Gsm";
+            this.DoktorGsm.MinimumWidth = 6;
             this.DoktorGsm.Name = "DoktorGsm";
-            this.DoktorGsm.Width = 81;
+            this.DoktorGsm.Width = 103;
             // 
             // CariMail
             // 
@@ -194,18 +204,17 @@ namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Doktorlar
             this.CariMail.HeaderText = "Doktor Mail";
             this.CariMail.MinimumWidth = 6;
             this.CariMail.Name = "CariMail";
-            this.CariMail.Width = 79;
             // 
             // frmDoktorlarListesi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 444);
+            this.ClientSize = new System.Drawing.Size(1371, 546);
             this.Controls.Add(this.Liste);
             this.Controls.Add(this.pnlUst);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmDoktorlarListesi";
             this.Text = "frmDoktorlarListesi";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmDoktorlarListesi_Load);
             this.pnlUst.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Liste)).EndInit();
