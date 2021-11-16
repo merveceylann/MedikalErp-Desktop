@@ -33,7 +33,7 @@ namespace InterfaceDemo
                 new Manager()
             };
         }
-    }
+    }  
 
     interface IWorker
     {

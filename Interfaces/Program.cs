@@ -25,15 +25,12 @@ namespace Interfaces
                 customerDal.Add();
             }
 
-            //yukaridaki ile ayni islem ve daha kisa yol. Fakat newlemeyi unutma.
+            //yukaridaki ile ayni islem ve daha kisa yol.
             CustomerManager cm = new CustomerManager();
-            cm.Add(new UseMsSqlServer());
+            cm.Add(new UseMsSqlServer()); //newlemeyi unutma.
             cm.Add(new UseOracleServer());
 
             Console.ReadLine();
-
-           
-
         }
 
         private static void NewMethod()

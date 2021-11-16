@@ -2,6 +2,7 @@
 using IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Firmalar;
 using IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler;
 using IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Personeller;
+using IEA_ErpProject102MC_Main.DepoIslemleri.StokIslemleri;
 using IEA_ErpProject102MC_Main.UrunIslemleri;
 using System;
 using System.Collections.Generic;
@@ -54,13 +55,22 @@ namespace IEA_ErpProject102MC_Main
             tvUrunIslemleri.Nodes[0].Nodes.Add("Urun Bilgi Giris Ekrani");
             tvUrunIslemleri.Nodes[0].Nodes.Add("Urunler Listesi");
             #endregion
+
+            #region DepoIslemleri
+            tvDepoIslemleri.Nodes.Add("Depo Islemleri");
+            tvDepoIslemleri.Nodes[0].Nodes.Add("Depo Stok Durum");
+            tvDepoIslemleri.Nodes[0].Nodes.Add("Depo Stok Giris");
+            tvDepoIslemleri.Nodes[0].Nodes[1].Nodes.Add("Stok Giris");
+            tvDepoIslemleri.Nodes[0].Nodes[1].Nodes.Add("Stok Giris Listesi");
+            tvDepoIslemleri.Nodes[0].Nodes.Add("Depo Sevkiyat");
+            #endregion
         }
 
         private void TvGorunum()
         {
             tvBilgiGirisIslemleri.Visible = false;
             tvUrunIslemleri.Visible = false;
-            tv3.Visible = false;
+            tvDepoIslemleri.Visible = false;
             tv4.Visible = false;
             tv5.Visible = false;
             tv6.Visible = false;
@@ -163,6 +173,35 @@ namespace IEA_ErpProject102MC_Main
                 frm.MdiParent = Form.ActiveForm;
                 frm.Show();
             }
+        }
+
+        private void btnDepoIslemleri_Click(object sender, EventArgs e)
+        {
+            lblMenuText.Text = btnDepoIslemleri.Text;
+            TvGorunum();
+            tvDepoIslemleri.Visible = true;
+        }
+
+        private void tvDepoIslemleri_DoubleClick(object sender, EventArgs e)
+        {
+            string isim = "";
+            if (tvDepoIslemleri.SelectedNode != null)
+            {
+                isim = tvDepoIslemleri.SelectedNode.Text;
+            }
+            if (isim == "Stok Giris" && Application.OpenForms["frmStokGiris"] == null)
+            {
+                frmStokGiris frm = new frmStokGiris();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+            else if (isim == "Stok Giris Listesi" && Application.OpenForms["frmStokListesi"] == null)
+            {
+                frmStokListesi frm = new frmStokListesi();
+                frm.MdiParent = Form.ActiveForm;
+                frm.Show();
+            }
+        
         }
     }
 }

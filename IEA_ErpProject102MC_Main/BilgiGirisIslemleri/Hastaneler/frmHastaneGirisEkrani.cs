@@ -1,4 +1,5 @@
-﻿using IEA_ErpProject102MC_Main.Entity;
+﻿using IEA_ErpProject102MC_Main.Dal;
+using IEA_ErpProject102MC_Main.Entity;
 using IEA_ErpProject102MC_Main.Fonksiyonlar;
 using IEA_ErpProject102MC_Main.Properties;
 using System;
@@ -13,10 +14,9 @@ using System.Windows.Forms;
 
 namespace IEA_ErpProject102MC_Main.BilgiGirisIslemleri.Hastaneler
 {
-    public partial class frmHastaneGirisEkrani : Form
+    public partial class frmHastaneGirisEkrani : baglanti
     {
-
-        private ErpProject102Entities erp = new ErpProject102Entities();
+        //private ErpProject102Entities erp = new ErpProject102Entities();
         private Numaralar n = new Numaralar();
         private int secimId = -1;
 

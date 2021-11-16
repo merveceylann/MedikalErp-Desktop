@@ -103,6 +103,21 @@
     <Compile Include="BilgiGirisIslemleri\Personeller\frmPersonellerListesi.Designer.cs">
       <DependentUpon>frmPersonellerListesi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dal\baglanti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepoIslemleri\StokIslemleri\frmStokGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepoIslemleri\StokIslemleri\frmStokGiris.Designer.cs">
+      <DependentUpon>frmStokGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DepoIslemleri\StokIslemleri\frmStokListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepoIslemleri\StokIslemleri\frmStokListesi.Designer.cs">
+      <DependentUpon>frmStokListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entity\ErpProject102Entities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -184,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BilgiGirisIslemleri\Personeller\frmPersonellerListesi.resx">
       <DependentUpon>frmPersonellerListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepoIslemleri\StokIslemleri\frmStokGiris.resx">
+      <DependentUpon>frmStokGiris.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
