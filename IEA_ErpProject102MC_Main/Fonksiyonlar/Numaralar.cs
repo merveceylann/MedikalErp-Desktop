@@ -90,7 +90,7 @@ namespace IEA_ErpProject102MC_Main.Fonksiyonlar
                 string num = numara.ToString().PadLeft(8, '0');
                 return num;
             }
-            catch (Exception)
+            catch (Exception) 
             {
                 return "00000001";
             }
